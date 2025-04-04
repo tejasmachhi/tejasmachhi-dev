@@ -700,7 +700,7 @@ h1.logo-name:hover {
 .footer-links,
 .footer-social {
   flex: 1;
-  min-width: 250px;
+  min-width: 200px;
   background: rgba(255, 255, 255, 0.05);
   padding: 30px;
   border-radius: 15px;
