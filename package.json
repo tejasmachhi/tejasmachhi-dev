@@ -1,0 +1,22 @@
+{
+  "name": "tejas-portfolio",
+  "version": "1.0.0",
+  "description": "Tejas Machhi's Portfolio Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "developer",
+    "website"
+  ],
+  "author": "Tejas Machhi",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
