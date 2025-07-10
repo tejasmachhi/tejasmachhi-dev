@@ -38,7 +38,7 @@ html {
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
-  color: var(--text-primary);
+  color: #1f2937;
   background-color: var(--bg-primary);
   overflow-x: hidden;
 }
@@ -132,7 +132,7 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: var(--text-secondary);
+  color: #6b7280;
   font-weight: 500;
   position: relative;
   transition: var(--transition);
@@ -216,7 +216,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   font-size: 1.125rem;
-  color: var(--text-secondary);
+  color: #6b7280;
   margin-bottom: 1rem;
 }
 
@@ -239,7 +239,7 @@ body {
 
 .title-name {
   display: block;
-  color: var(--text-primary);
+  color: #1f2937;
 }
 
 .title-role {
@@ -252,7 +252,7 @@ body {
 
 .hero-description {
   font-size: 1.125rem;
-  color: var(--text-secondary);
+  color: #6b7280;
   margin-bottom: 2rem;
   line-height: 1.7;
 }
@@ -290,7 +290,7 @@ body {
 
 .btn-secondary {
   background: transparent;
-  color: var(--text-primary);
+  color: #1f2937;
   border: 2px solid var(--border-color);
 }
 
@@ -365,7 +365,7 @@ body {
 
 .stat-label {
   font-size: 0.875rem;
-  color: var(--text-secondary);
+  color: #6b7280;
   margin-top: 0.5rem;
 }
 
@@ -412,13 +412,13 @@ section {
 .section-title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1f2937;
   margin-bottom: 1rem;
 }
 
 .section-subtitle {
   font-size: 1.125rem;
-  color: var(--text-secondary);
+  color: #6b7280;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -462,7 +462,7 @@ section {
 }
 
 .about-card p {
-  color: var(--text-secondary);
+  color: #6b7280;
   line-height: 1.7;
 }
 
@@ -543,7 +543,7 @@ section {
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: var(--text-primary);
+  color: #1f2937;
 }
 
 .skill-progress {
@@ -651,11 +651,11 @@ section {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
+  color: #1f2937;
 }
 
 .project-content p {
-  color: var(--text-secondary);
+  color: #6b7280;
   margin-bottom: 1rem;
   line-height: 1.6;
 }
@@ -722,11 +722,11 @@ section {
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
+  color: #1f2937;
 }
 
 .contact-card p {
-  color: var(--text-secondary);
+  color: #6b7280;
 }
 
 .contact-form {
@@ -786,7 +786,7 @@ section {
 }
 
 .footer-info p {
-  color: #9ca3af;
+  color: #d1d5db;
   line-height: 1.7;
 }
 
@@ -806,7 +806,7 @@ section {
 }
 
 .footer-links a {
-  color: #9ca3af;
+  color: #d1d5db;
   text-decoration: none;
   transition: var(--transition);
 }
@@ -845,7 +845,7 @@ section {
 }
 
 .footer-bottom p {
-  color: #9ca3af;
+  color: #d1d5db;
 }
 
 /* Back to Top Button */
