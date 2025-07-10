@@ -382,75 +382,13 @@
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-primary: #f8fafc;
-    --text-secondary: #e2e8f0;
-    --text-light: #cbd5e1;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-light: #9ca3af;
     --bg-primary: #111827;
     --bg-secondary: #1f2937;
     --bg-dark: #030712;
     --border-color: #374151;
-  }
-
-  body {
-    color: #f8fafc;
-    background-color: #111827;
-  }
-
-  .nav-link {
-    color: #e2e8f0;
-  }
-
-  .hero-greeting {
-    color: #cbd5e1;
-  }
-
-  .title-name {
-    color: #f8fafc;
-  }
-
-  .hero-description {
-    color: #cbd5e1;
-  }
-
-  .btn-secondary {
-    color: #f8fafc;
-    border-color: #374151;
-  }
-
-  .stat-label {
-    color: #cbd5e1;
-  }
-
-  .section-title {
-    color: #f8fafc;
-  }
-
-  .section-subtitle {
-    color: #cbd5e1;
-  }
-
-  .about-card p {
-    color: #cbd5e1;
-  }
-
-  .skill-card h3 {
-    color: #f8fafc;
-  }
-
-  .project-content h3 {
-    color: #f8fafc;
-  }
-
-  .project-content p {
-    color: #cbd5e1;
-  }
-
-  .contact-card h3 {
-    color: #f8fafc;
-  }
-
-  .contact-card p {
-    color: #cbd5e1;
   }
 
   .header {
