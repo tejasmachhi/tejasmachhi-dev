@@ -1,0 +1,150 @@
+// Variables
+$primary: #111;
+$accent: #4f46e5;
+$text: #333;
+$bg: #f9f9f9;
+$white: #ffffff;
+$gray: #6b7280;
+$light-gray: #f3f4f6;
+
+.project-card {
+  background-color: $white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+    .project-overlay {
+      opacity: 1;
+    }
+  }
+
+  .project-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba($accent, 0.9), rgba($primary, 0.8));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .project-links {
+        display: flex;
+        gap: 16px;
+
+        .project-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          background-color: rgba($white, 0.2);
+          color: $white;
+          text-decoration: none;
+          border-radius: 50%;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+
+          &:hover {
+            background-color: $white;
+            color: $accent;
+            transform: scale(1.1);
+          }
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .project-content {
+    padding: 24px;
+
+    h3 {
+      color: $primary;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: $gray;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .tech-tag {
+        background-color: $light-gray;
+        color: $text;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: $accent;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .project-card {
+    .project-image {
+      height: 200px;
+    }
+
+    .project-content {
+      padding: 20px;
+
+      h3 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+
+      .project-tech {
+        .tech-tag {
+          font-size: 11px;
+          padding: 4px 10px;
+        }
+      }
+    }
+  }
+}

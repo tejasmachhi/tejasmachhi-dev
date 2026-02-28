@@ -1,0 +1,218 @@
+// Variables
+$primary: #111;
+$accent: #4f46e5;
+$text: #333;
+$bg: #f9f9f9;
+$white: #ffffff;
+$gray: #6b7280;
+$light-gray: #f3f4f6;
+
+.contact {
+  padding: 120px 0 80px;
+  background: linear-gradient(135deg, $bg 0%, $white 100%);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+
+      .section-title {
+        font-size: 42px;
+        font-weight: 700;
+        color: $primary;
+        margin-bottom: 16px;
+      }
+
+      .section-subtitle {
+        font-size: 18px;
+        color: $gray;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .contact-card {
+          background-color: $white;
+          padding: 32px;
+          border-radius: 16px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: translateY(-4px);
+          }
+
+          .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, $accent, $primary);
+            color: $white;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+
+            svg {
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          h3 {
+            color: $primary;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+          }
+
+          p {
+            color: $gray;
+            font-size: 16px;
+            margin: 0;
+          }
+        }
+      }
+
+      .contact-form-container {
+        .contact-form {
+          background-color: $white;
+          padding: 40px;
+          border-radius: 16px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+          .form-group {
+            margin-bottom: 24px;
+
+            input, textarea {
+              width: 100%;
+              padding: 16px;
+              border: 2px solid $light-gray;
+              border-radius: 8px;
+              font-size: 16px;
+              font-family: inherit;
+              transition: all 0.3s ease;
+              background-color: $white;
+
+              &:focus {
+                outline: none;
+                border-color: $accent;
+                box-shadow: 0 0 0 3px rgba($accent, 0.1);
+              }
+
+              &::placeholder {
+                color: $gray;
+              }
+            }
+
+            textarea {
+              resize: vertical;
+              min-height: 120px;
+            }
+          }
+
+          .success-message {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 12px 16px;
+            background-color: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+
+            svg {
+              width: 18px;
+              height: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .contact {
+    padding: 100px 0 60px;
+
+    .container {
+      padding: 0 16px;
+
+      .section-header {
+        margin-bottom: 40px;
+
+        .section-title {
+          font-size: 32px;
+        }
+
+        .section-subtitle {
+          font-size: 16px;
+        }
+      }
+
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+
+        .contact-info {
+          .contact-card {
+            padding: 24px;
+
+            .contact-icon {
+              width: 50px;
+              height: 50px;
+
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+            }
+
+            h3 {
+              font-size: 18px;
+            }
+
+            p {
+              font-size: 15px;
+            }
+          }
+        }
+
+        .contact-form-container {
+          .contact-form {
+            padding: 32px 24px;
+
+            .form-group {
+              margin-bottom: 20px;
+
+              input, textarea {
+                padding: 14px;
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

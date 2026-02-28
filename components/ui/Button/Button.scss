@@ -1,0 +1,88 @@
+// Variables
+$primary: #111;
+$accent: #4f46e5;
+$text: #333;
+$bg: #f9f9f9;
+$white: #ffffff;
+$gray: #6b7280;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  justify-content: center;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &-primary {
+    background-color: $accent;
+    color: $white;
+
+    &:hover {
+      background-color: darken($accent, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba($accent, 0.3);
+    }
+  }
+
+  &-secondary {
+    background-color: transparent;
+    color: $primary;
+    border: 2px solid $primary;
+
+    &:hover {
+      background-color: $primary;
+      color: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba($primary, 0.2);
+    }
+  }
+
+  &-outline {
+    background-color: transparent;
+    color: $accent;
+    border: 2px solid $accent;
+
+    &:hover {
+      background-color: $accent;
+      color: $white;
+      transform: translateY(-2px);
+    }
+  }
+
+  &-ghost {
+    background-color: transparent;
+    color: $text;
+    padding: 8px 16px;
+
+    &:hover {
+      background-color: rgba($accent, 0.1);
+      color: $accent;
+    }
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+// Variables
+$primary: #111;
+$accent: #4f46e5;
+$text: #333;
+$bg: #f9f9f9;
+$white: #ffffff;
+$gray: #6b7280;
+$light-gray: #f3f4f6;
+
+.about {
+  padding: 120px 0 80px;
+  background: linear-gradient(135deg, $bg 0%, $white 100%);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+
+      .section-title {
+        font-size: 42px;
+        font-weight: 700;
+        color: $primary;
+        margin-bottom: 16px;
+      }
+
+      .section-subtitle {
+        font-size: 18px;
+        color: $gray;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+
+      .about-text {
+        .about-card {
+          background-color: $white;
+          padding: 32px;
+          border-radius: 16px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          margin-bottom: 24px;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: translateY(-4px);
+          }
+
+          h3 {
+            color: $accent;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+          }
+
+          p {
+            color: $gray;
+            line-height: 1.6;
+            font-size: 16px;
+          }
+        }
+      }
+
+      .about-image {
+        .about-img-container {
+          position: relative;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+          .about-img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+          }
+
+          .about-img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .about {
+    padding: 100px 0 60px;
+
+    .container {
+      padding: 0 16px;
+
+      .section-header {
+        margin-bottom: 40px;
+
+        .section-title {
+          font-size: 32px;
+        }
+
+        .section-subtitle {
+          font-size: 16px;
+        }
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+
+        .about-text {
+          .about-card {
+            padding: 24px;
+            margin-bottom: 20px;
+
+            h3 {
+              font-size: 20px;
+            }
+
+            p {
+              font-size: 15px;
+            }
+          }
+        }
+
+        .about-image {
+          .about-img-container {
+            .about-img {
+              border-radius: 16px;
+            }
+
+            .about-img-overlay {
+              border-radius: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
