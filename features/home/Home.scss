@@ -12,6 +12,7 @@ $light-gray: #f3f4f6;
 
   // Hero Section
   .hero {
+    margin-top: 50px;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -58,10 +59,19 @@ $light-gray: #f3f4f6;
             }
 
             .title-role {
-              display: block;
+              font-size: 34px;
+              font-weight: 700;
               color: $accent;
-              font-size: 36px;
-              font-weight: 600;
+            }
+
+            .cursor {
+              animation: blink 1s infinite;
+            }
+
+            @keyframes blink {
+              50% {
+                opacity: 0;
+              }
             }
           }
 
@@ -153,7 +163,7 @@ $light-gray: #f3f4f6;
 
           &:hover {
             transform: translateY(-10px);
-     
+
 
             &::before {
               opacity: 1;
@@ -611,7 +621,7 @@ $light-gray: #f3f4f6;
 
         }
 
-      
+
       }
 
       /* ================= STATS ================= */

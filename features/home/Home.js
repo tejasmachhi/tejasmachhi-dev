@@ -8,6 +8,7 @@ import "./Home.scss";
 import IconComponent from "@/components/IconComponent";
 import { useEffect, useRef } from "react";
 import About from "@/features/about/About";
+import { useState } from "react";
 
 export default function Home() {
   const statsRef = useRef(null);
@@ -15,6 +16,14 @@ export default function Home() {
   /* ===============================
      DATA ARRAYS
   =============================== */
+  const roles = [
+    "Frontend Developer",
+    "UI/UX Developer",
+    "Web Developer",
+   "Part-Time Game Streamer (YouTube)"
+  ];
+  const roleColors = ["#9238faff", "#fa7901ff", "#14b8a6", "#f1120eff"];
+
 
   const statsData = [
     {
@@ -162,6 +171,38 @@ export default function Home() {
     };
   }, []);
 
+
+  const [displayText, setDisplayText] = useState("");
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    let typingSpeed = isDeleting ? 50 : 100;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayText(currentRole.substring(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+
+        if (charIndex + 1 === currentRole.length) {
+          setTimeout(() => setIsDeleting(true), 1500);
+        }
+      } else {
+        setDisplayText(currentRole.substring(0, charIndex - 1));
+        setCharIndex(charIndex - 1);
+
+        if (charIndex === 0) {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, roleIndex]);
+
   /* ===============================
      COMPONENT JSX
   =============================== */
@@ -182,8 +223,12 @@ export default function Home() {
                 <span className="title-name">
                   Tejas Machhi
                 </span>
-                <span className="title-role">
-                  Frontend Developer & UI UX Developer
+                <span
+                  className="title-role"
+                  style={{ color: roleColors[roleIndex] }}
+                >
+                  {displayText}
+                  <span className="cursor">|</span>
                 </span>
               </h1>
 
