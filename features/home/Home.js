@@ -311,7 +311,7 @@ export default function Home() {
             <div className="hero-image">
               <div className="hero-img-container">
                 <Image
-                  src={ImgAssets.HERO_PROFILE}
+                  src={ImgAssets.HERO_BANNER}
                   alt="Tejas Machhi"
                   width={400}
                   height={400}

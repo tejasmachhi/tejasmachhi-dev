@@ -1,24 +1,10 @@
-/**
- * Centralized Image Asset Management System
- * 
- * This file provides a single source of truth for all image assets in the project.
- * It ensures consistent naming, prevents duplicate imports, and makes maintenance easier.
- * 
- * Usage:
- * import { ImgAssets } from '@/data/imgAssets';
- * 
- * With Next.js Image component:
- * <Image src={ImgAssets.HERO_BANNER} alt="Hero Banner" width={800} height={400} />
- * 
- * With regular img tag:
- * <img src={ImgAssets.HERO_BANNER} alt="Hero Banner" />
- */
+
 
 export const ImgAssets = {
   // Hero Images
-  HERO_BANNER: "/assets/img/hero-image.png",
-  HERO_PROFILE: "/assets/img/IMG_1541.jpeg",
-  
+  HERO_BANNER: "/assets/img/hero-image.png",      
+
+
   // Technology Icons
   CSS_ICON: "/assets/img/css.png",
   HTML5_ICON: "/assets/img/html5.png",

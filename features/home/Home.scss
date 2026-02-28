@@ -497,7 +497,7 @@ $light-gray: #f3f4f6;
       &:hover {
         transform: translateY(-8px);
         border-color: $accent;
-        box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
+        box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
       }
 
       @media (max-width: 768px) {
@@ -889,7 +889,7 @@ $light-gray: #f3f4f6;
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+    background: radial-gradient(circle at 50% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
     pointer-events: none;
   }
@@ -921,7 +921,7 @@ $light-gray: #f3f4f6;
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
       opacity: 0;
       transition: opacity 0.4s ease;
       pointer-events: none;
@@ -929,16 +929,16 @@ $light-gray: #f3f4f6;
 
     &:hover {
       transform: translateY(-8px) scale(1.03);
-      border-color: rgba(34, 197, 94, 0.3);
+      border-color: rgba(79, 70, 229, 0.3);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2),
-        0 0 20px rgba(34, 197, 94, 0.1);
+        0 0 20px rgba(79, 70, 229, 0.1);
 
       &::before {
         opacity: 1;
       }
 
       .service-icon {
-        color: #22c55e;
+        color: $accent;
         transform: scale(1.1) rotate(5deg);
       }
     }
@@ -946,7 +946,7 @@ $light-gray: #f3f4f6;
     .service-icon {
       font-size: 40px;
       margin-bottom: 20px;
-      color: #10b981;
+      color: $accent;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       display: inline-block;
     }

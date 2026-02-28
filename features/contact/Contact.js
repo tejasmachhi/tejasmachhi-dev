@@ -22,19 +22,37 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
+
+    const text = `
+🚀 New Portfolio Inquiry
+
+Name: ${formData.name}
+Email: ${formData.email}
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+    `;
+
+    // ⚠ Replace with your real WhatsApp number (no +, no spaces)
+    const whatsappNumber = "916353331221";
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank");
+
+    // Reset UI
     setTimeout(() => {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitting(false);
-      
-      // Reset status after 3 seconds
+
       setTimeout(() => setSubmitStatus(''), 3000);
-    }, 1500);
+    }, 500);
   };
 
   return (
@@ -42,9 +60,11 @@ export default function Contact() {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">Let's work together to bring your ideas to life</p>
+          <p className="section-subtitle">
+            Let's work together to bring your ideas to life
+          </p>
         </div>
-        
+
         <div className="contact-content">
           <div className="contact-info">
             <div className="contact-card">
@@ -54,15 +74,15 @@ export default function Contact() {
               <h3>Email</h3>
               <p>tejasmachhi@example.com</p>
             </div>
-            
+
             <div className="contact-card">
               <div className="contact-icon">
                 <IconComponent icon="mdi:phone" />
               </div>
               <h3>Phone</h3>
-              <p>+91 635333122</p>
+              <p>+91 6353331221</p>
             </div>
-            
+
             <div className="contact-card">
               <div className="contact-icon">
                 <IconComponent icon="mdi:map-marker" />
@@ -71,67 +91,66 @@ export default function Contact() {
               <p>India</p>
             </div>
           </div>
-          
+
           <div className="contact-form-container">
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  placeholder="Your Name" 
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
                   value={formData.name}
                   onChange={handleChange}
                   required
                 />
               </div>
+
               <div className="form-group">
                 <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  placeholder="Your Email" 
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
                   value={formData.email}
                   onChange={handleChange}
                   required
                 />
               </div>
+
               <div className="form-group">
                 <input 
-                  type="text" 
-                  id="subject" 
-                  name="subject" 
-                  placeholder="Subject" 
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
                   required
                 />
               </div>
+
               <div className="form-group">
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  placeholder="Your Message" 
-                  rows="6" 
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  rows="6"
                   value={formData.message}
                   onChange={handleChange}
                   required
                 ></textarea>
               </div>
-              
-              <Button 
-                type="submit" 
+
+              <Button
+                type="submit"
                 variant="primary"
                 icon="mdi:send"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? 'Redirecting...' : 'Send via WhatsApp'}
               </Button>
-              
+
               {submitStatus === 'success' && (
                 <div className="success-message">
                   <IconComponent icon="mdi:check-circle" />
-                  Message sent successfully! I'll get back to you soon.
+                  Redirected to WhatsApp successfully!
                 </div>
               )}
             </form>
