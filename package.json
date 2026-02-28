@@ -28,5 +28,8 @@
     "nextjs"
   ],
   "author": "Tejas Machhi",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
