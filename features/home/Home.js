@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Icon } from "@iconify/react";
 import Button from "@/components/ui/Button/Button";
 import "./Home.scss";
 import IconComponent from "@/components/IconComponent";
@@ -10,7 +9,7 @@ import About from "@/features/about/About";
 import { useState } from "react";
 import Services from "@/features/services/Services";
 import Projects from "../projects/Projects";
-import { imgAssets } from "@/src/assets";
+import { ImgAssets } from "@/data/imgAssets";
 
 export default function Home() {
   const statsRef = useRef(null);
@@ -312,7 +311,7 @@ export default function Home() {
             <div className="hero-image">
               <div className="hero-img-container">
                 <Image
-                  src={imgAssets.heroImage}
+                  src={ImgAssets.HERO_PROFILE}
                   alt="Tejas Machhi"
                   width={400}
                   height={400}
