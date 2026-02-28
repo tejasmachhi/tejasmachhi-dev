@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
@@ -9,6 +8,9 @@ import IconComponent from "@/components/IconComponent";
 import { useEffect, useRef } from "react";
 import About from "@/features/about/About";
 import { useState } from "react";
+import Services from "@/features/services/Services";
+import Projects from "../projects/Projects";
+import { imgAssets } from "@/src/assets";
 
 export default function Home() {
   const statsRef = useRef(null);
@@ -20,7 +22,7 @@ export default function Home() {
     "Frontend Developer",
     "UI/UX Developer",
     "Web Developer",
-   "Part-Time Game Streamer (YouTube)"
+    "Part-Time Game Streamer (YouTube)"
   ];
   const roleColors = ["#9238faff", "#fa7901ff", "#14b8a6", "#f1120eff"];
 
@@ -109,6 +111,57 @@ export default function Home() {
       icon: "mdi:robot",
       progress: "88%",
       isIconify: true,
+    },
+  ];
+
+  const projectsData = [
+    {
+      title: "Modern E-Commerce Website",
+      description:
+        "Responsive online store built with Next.js and modern UI principles.",
+      image: "/assets/img/blue-berry-p1.png",
+      tags: ["Next.js", "React", "SCSS"],
+    },
+    {
+      title: "Gaming Portfolio Website",
+      description:
+        "Personal brand website with animated hero and dark theme design.",
+      image: "/assets/img/omega-rwd.png",
+      tags: ["React", "Framer Motion", "Sass"],
+    },
+    {
+      title: "Admin Dashboard UI",
+      description:
+        "Clean and modern dashboard with authentication and analytics charts.",
+      image: "/assets/img/hupp-tech.png",
+      tags: ["Next.js", "Chart.js", "Bootstrap"],
+    },
+  ];
+
+  const servicesData = [
+    {
+      icon: "mdi:web",
+      title: "Web Development",
+      description:
+        "Building responsive and scalable web applications.",
+    },
+    {
+      icon: "mdi:palette",
+      title: "UI/UX Design",
+      description:
+        "Designing modern and user-focused interfaces.",
+    },
+    {
+      icon: "mdi:speedometer",
+      title: "Performance Optimization",
+      description:
+        "Improving website speed and user experience.",
+    },
+    {
+      icon: "mdi:youtube",
+      title: "Gaming Content Creation",
+      description:
+        "Creating engaging gaming content and streams.",
     },
   ];
 
@@ -233,9 +286,8 @@ export default function Home() {
               </h1>
 
               <p className="hero-description">
-                I'm a passionate self-taught frontend developer who
-                loves creating beautiful, responsive, and
-                user-friendly websites.
+                Passionate Self-Taught Frontend Developer crafting modern, responsive, and user-focused web experiences. I turn ideas into clean, scalable, and visually engaging digital products.
+
               </p>
 
               <div className="hero-buttons">
@@ -260,7 +312,7 @@ export default function Home() {
             <div className="hero-image">
               <div className="hero-img-container">
                 <Image
-                  src="/assets/img/IMG_1541.jpeg"
+                  src={imgAssets.heroImage}
                   alt="Tejas Machhi"
                   width={400}
                   height={400}
@@ -306,12 +358,8 @@ export default function Home() {
       <section className="skills">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">
-              Skills & Technologies
-            </h2>
-            <p className="section-subtitle">
-              Technologies I work with
-            </p>
+            <h2 className="section-title">Technologies I work with</h2>
+            <p className="section-subtitle">Technologies I Work With</p>
           </div>
 
           <div className="skills-grid">
@@ -321,25 +369,23 @@ export default function Home() {
                   {skill.isIconify ? (
                     <IconComponent icon={skill.icon} />
                   ) : (
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                    />
+                    <img src={skill.icon} alt={skill.name} />
                   )}
                 </div>
 
                 <h3>{skill.name}</h3>
-
-                <div className="skill-progress">
-                  <div
-                    className="progress-bar"
-                    style={{ width: skill.progress }}
-                  ></div>
-                </div>
               </div>
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ================= FEATURED PROJECTS SECTION ================= */}
+      <Projects />
+
+      {/* ================= Service section ================= */}
+      <section className="services-section">
+        <Services />
       </section>
 
       {/* ================= CTA ================= */}
