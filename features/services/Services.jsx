@@ -25,10 +25,11 @@ export default function Services() {
     },
     {
       icon: "mdi:youtube",
-      title: "Gaming Content Creation",
+      title: "Canva YouTube Thumbnail Design",
       description:
-        "Creating engaging gaming content and live streams on YouTube.",
+        "Designing scroll-stopping YouTube thumbnails in Canva that increase click-through rates and boost video engagement.",
     },
+
   ];
 
   return (

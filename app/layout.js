@@ -1,6 +1,7 @@
 import HeaderClient from '@/components/shared/Header/HeaderClient';
 import Footer from '@/components/shared/Footer/Footer';
 import Cursor from '@/components/shared/Cursor/Cursor';
+import { Analytics } from "@vercel/analytics/next"
 import './globals.scss';
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
         <HeaderClient />
         <main>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
