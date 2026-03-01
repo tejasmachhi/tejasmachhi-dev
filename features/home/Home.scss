@@ -196,7 +196,7 @@ $light-gray: #f3f4f6;
               height: auto;
               border-radius: 20px;
               object-fit: cover;
-             
+
               @media (max-width: 768px) {
                 width: 300px;
                 height: 300px;
@@ -237,6 +237,24 @@ $light-gray: #f3f4f6;
             }
           }
         }
+      }
+
+      .code-icon {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 10rem;
+        opacity: 0.1;
+
+        @media (max-width: 768px) {
+          font-size: 4rem;
+          top: 3%;
+          left: 20%;
+          transform: translate(-50%, -50%);
+        }
+
+
       }
 
       .hero-stats {
@@ -370,25 +388,10 @@ $light-gray: #f3f4f6;
 
             @media (max-width: 768px) {
               font-size: 32px;
-
-              &::after {
-                font-size: 18px;
-              }
             }
 
             @media (max-width: 480px) {
               font-size: 28px;
-
-              &::after {
-                font-size: 16px;
-              }
-            }
-
-            &::after {
-              content: attr(data-suffix);
-              font-size: 24px;
-              color: $accent;
-              margin-left: 4px;
             }
           }
 
@@ -414,6 +417,16 @@ $light-gray: #f3f4f6;
       }
     }
 
+  }
+
+  .about-section {
+    padding: 80px 0;
+    border-top: 1px solid #e5e7eb;
+
+    .about {
+      padding: 20px 0;
+
+    }
   }
 
   // Skills Section
@@ -469,11 +482,11 @@ $light-gray: #f3f4f6;
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 25px;
 
       @media (max-width: 1200px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
 
       @media (max-width: 768px) {
@@ -539,68 +552,20 @@ $light-gray: #f3f4f6;
   }
 
   // About Preview Section
-  .about-preview {
-    padding: 80px 0;
-    background-color: $white;
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-
-      .section-header {
-        text-align: center;
-        margin-bottom: 60px;
-
-        .section-title {
-          font-size: 36px;
-          font-weight: 700;
-          color: $primary;
-          margin-bottom: 16px;
-        }
-
-        .section-subtitle {
-          font-size: 18px;
-          color: $gray;
-          max-width: 600px;
-          margin: 0 auto;
-        }
-      }
-
-      .about-preview-content {
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
-
-        p {
-          font-size: 18px;
-          line-height: 1.6;
-          color: $gray;
-          margin-bottom: 32px;
-        }
-
-        .learn-more-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          color: $accent;
-          text-decoration: none;
-          font-weight: 500;
-          transition: all 0.3s ease;
-
-          &:hover {
-            color: darken($accent, 10%);
-            transform: translateX(4px);
-          }
-        }
-      }
-    }
-  }
 
   // Projects Preview Section
   .projects-preview {
     padding: 80px 0;
     background-color: $bg;
+
+    @media (max-width: 768px) {
+      padding: 60px 0;
+    }
+
+    @media (max-width: 480px) {
+      padding: 40px 0;
+    }
 
     .container {
       max-width: 1200px;
@@ -661,6 +626,14 @@ $light-gray: #f3f4f6;
     padding: 80px 0;
     background: linear-gradient(135deg, $accent, $primary);
     color: $white;
+
+    @media (max-width: 768px) {
+      padding: 60px 0;
+    }
+
+    @media (max-width: 480px) {
+      padding: 40px 0;
+    }
 
     .container {
       max-width: 1200px;
@@ -731,6 +704,14 @@ $light-gray: #f3f4f6;
   padding: 100px 0;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 0;
+  }
 
   &::before {
     content: '';
@@ -881,6 +862,14 @@ $light-gray: #f3f4f6;
   padding: 100px 0;
   background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%);
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 0;
+  }
 
   &::before {
     content: '';

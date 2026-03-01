@@ -30,24 +30,25 @@ export default function Home() {
     {
       icon: "mdi:briefcase",
       target: 25,
-
+      suffix: "+",
       label: "Projects Completed",
     },
     {
       icon: "mdi:clock-time-eight",
       target: 3,
-
+      suffix: "+",
       label: "Years Experience",
     },
     {
       icon: "mdi:code-tags",
       target: 5,
-
+      suffix: "+",
       label: "Technologies",
     },
     {
       icon: "mdi:code-tags",
       target: 2000,
+      suffix: "+",
 
       label: "line of code written",
     },
@@ -65,21 +66,6 @@ export default function Home() {
       progress: "90%",
     },
     {
-      name: "JavaScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-      progress: "85%",
-    },
-    {
-      name: "Bootstrap",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
-      progress: "88%",
-    },
-    {
-      name: "React",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-      progress: "75%",
-    },
-    {
       name: "Sass",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
       progress: "80%",
@@ -90,6 +76,34 @@ export default function Home() {
       progress: "82%",
     },
     {
+      name: "Bootstrap",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+      progress: "88%",
+    },
+    {
+      name: "Tailwind CSS",
+      icon: "logos:tailwindcss-icon",  // colorful official logo
+      progress: "90%",
+      isIconify: true,
+    },
+    {
+      name: "JavaScript",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      progress: "85%",
+    },
+    {
+      name: "Next.js",
+      icon: "logos:nextjs-icon",   // colored logo
+      progress: "90%",
+      isIconify: true,
+    },
+    {
+      name: "React",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      progress: "75%",
+    },
+
+    {
       name: "Git",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
       progress: "78%",
@@ -99,16 +113,11 @@ export default function Home() {
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
       progress: "85%",
     },
+
     {
-      name: "Responsive Design",
-      icon: "mdi:devices",
-      progress: "92%",
-      isIconify: true,
-    },
-    {
-      name: "Prompt Engineering",
-      icon: "mdi:robot",
-      progress: "88%",
+      name: "Canva Design",
+      icon: "devicon:canva",   // colored Canva logo
+      progress: "85%",
       isIconify: true,
     },
   ];
@@ -265,12 +274,11 @@ export default function Home() {
       <section className="hero">
         <div className="hero-container">
           <div className="hero-content">
-            <div className="hero-text">
+            <div className="hero-text" data-aos="fade-right">
               <div className="hero-greeting">
                 <span className="wave">👋</span>
                 <span>Hello, I'm</span>
               </div>
-
               <h1 className="hero-title">
                 <span className="title-name">
                   Tejas Machhi
@@ -294,6 +302,8 @@ export default function Home() {
                   href="/projects"
                   variant="primary"
                   icon="mdi:arrow-right"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
                 >
                   View My Work
                 </Button>
@@ -302,13 +312,15 @@ export default function Home() {
                   href="/contact"
                   variant="secondary"
                   icon="mdi:email"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
                 >
                   Get In Touch
                 </Button>
               </div>
             </div>
-
-            <div className="hero-image">
+            <IconComponent icon="noto:rocket" className="code-icon" data-aos="zoom-in" data-aos-delay="600" />
+            <div className="hero-image" data-aos="fade-left">
               <div className="hero-img-container">
                 <Image
                   src={ImgAssets.HERO_BANNER}
@@ -317,14 +329,14 @@ export default function Home() {
                   height={400}
                   className="hero-img"
                 />
-                <div className="hero-img-bg"></div>
+
               </div>
             </div>
           </div>
           {/* ================= STATS ================= */}
-          <div className="hero-stats" ref={statsRef}>
+          <div className="hero-stats" ref={statsRef} data-aos="fade-up" data-aos-delay="80">
             {statsData.map((stat, index) => (
-              <div className="stat-item" key={index}>
+              <div className="stat-item" key={index} data-aos="zoom-in" >
 
                 <div className="stat-icon">
                   <IconComponent icon={stat.icon} />
@@ -335,7 +347,7 @@ export default function Home() {
                   data-target={stat.target}
                   data-suffix={stat.suffix}
                 >
-                  <span>+</span>
+                  0
                 </div>
 
                 <div className="stat-label">
@@ -349,21 +361,24 @@ export default function Home() {
 
 
       </section>
-      <section className="about">
+      <section className="about-section" data-aos="fade-up">
         <About />
       </section>
 
       {/* ================= SKILLS SECTION ================= */}
       <section className="skills">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Technologies I work with</h2>
-            <p className="section-subtitle">Technologies I Work With</p>
+          <div className="section-header" data-aos="fade-up">
+            <h2 className="section-title">Technologies & Tools I Use</h2>
+            <p className="section-subtitle">
+              The technologies and tools I use to build clean, responsive, and high-performing web applications.
+              Committed to efficiency, scalability, and writing maintainable, well-structured code.
+            </p>
           </div>
 
           <div className="skills-grid">
             {skillsData.map((skill, index) => (
-              <div className="skill-card" key={index}>
+              <div className="skill-card" key={index} data-aos="zoom-in" data-aos-delay={50 * (index % 6)}>
                 <div className="skill-icon">
                   {skill.isIconify ? (
                     <IconComponent icon={skill.icon} />
@@ -390,7 +405,7 @@ export default function Home() {
       {/* ================= CTA ================= */}
       <section className="contact-cta">
         <div className="container">
-          <div className="cta-content">
+          <div className="cta-content" data-aos="zoom-in">
             <h2>Let's Work Together</h2>
             <p>
               Have a project in mind? Let's create
@@ -401,6 +416,8 @@ export default function Home() {
               href="/contact"
               variant="primary"
               icon="mdi:send"
+              data-aos="fade-up"
+              data-aos-delay="200"
             >
               Get In Touch
             </Button>
