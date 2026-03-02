@@ -1,8 +1,27 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import AnimatedCursor from "react-animated-cursor";
 
 export default function Cursor() {
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      return (
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        navigator.msMaxTouchPoints > 0
+      );
+    };
+
+    setIsTouchDevice(checkTouchDevice());
+  }, []);
+
+  if (isTouchDevice) {
+    return null;
+  }
+
   return (
     <AnimatedCursor
       innerSize={12}

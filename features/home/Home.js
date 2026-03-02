@@ -9,6 +9,7 @@ import About from "@/features/about/About";
 import { useState } from "react";
 import Services from "@/features/services/Services";
 import Projects from "../projects/Projects";
+import Experience from "../experience/Experience";
 import { ImgAssets } from "@/data/imgAssets";
 
 export default function Home() {
@@ -29,13 +30,13 @@ export default function Home() {
   const statsData = [
     {
       icon: "mdi:briefcase",
-      target: 25,
+      target: 10,
       suffix: "+",
       label: "Projects Completed",
     },
     {
       icon: "mdi:clock-time-eight",
-      target: 3,
+      target: 1,
       suffix: "+",
       label: "Years Experience",
     },
@@ -47,7 +48,7 @@ export default function Home() {
     },
     {
       icon: "mdi:code-tags",
-      target: 2000,
+      target: 20000,
       suffix: "+",
 
       label: "line of code written",
@@ -361,8 +362,15 @@ export default function Home() {
 
 
       </section>
+
+
+
       <section className="about-section" data-aos="fade-up">
         <About />
+      </section>
+      {/* ================= Experience section ================= */}
+      <section className="experience-section">
+        <Experience />
       </section>
 
       {/* ================= SKILLS SECTION ================= */}
@@ -401,6 +409,7 @@ export default function Home() {
       <section className="services-section">
         <Services />
       </section>
+
 
       {/* ================= CTA ================= */}
       <section className="contact-cta">
