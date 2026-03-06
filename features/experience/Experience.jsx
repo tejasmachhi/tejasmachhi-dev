@@ -82,8 +82,6 @@ export default function Experience() {
             <div 
               key={index} 
               className="experience-card"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
             >
               <div className="card-header">
                 <div className="company-icon">
@@ -137,8 +135,8 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* <div className="experience-summary">
-          <div className="summary-card" data-aos="fade-up">
+        <div className="experience-summary">
+          <div className="summary-card">
             <div className="summary-icon">
               <IconComponent icon="mdi:lightbulb" />
             </div>
@@ -167,7 +165,7 @@ export default function Experience() {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </section>
   );

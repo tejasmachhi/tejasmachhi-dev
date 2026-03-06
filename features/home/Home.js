@@ -10,7 +10,7 @@ import { useState } from "react";
 import Services from "@/features/services/Services";
 import Projects from "../projects/Projects";
 import Experience from "../experience/Experience";
-import { ImgAssets } from "@/data/imgAssets";
+import { AppIcons } from "@/data/appIcons";
 
 export default function Home() {
   const statsRef = useRef(null);
@@ -83,7 +83,7 @@ export default function Home() {
     },
     {
       name: "Tailwind CSS",
-      icon: "logos:tailwindcss-icon",  // colorful official logo
+      icon: "logos:tailwindcss-icon",  
       progress: "90%",
       isIconify: true,
     },
@@ -94,7 +94,7 @@ export default function Home() {
     },
     {
       name: "Next.js",
-      icon: "logos:nextjs-icon",   // colored logo
+      icon: "logos:nextjs-icon",   
       progress: "90%",
       isIconify: true,
     },
@@ -117,7 +117,7 @@ export default function Home() {
 
     {
       name: "Canva Design",
-      icon: "devicon:canva",   // colored Canva logo
+      icon: "devicon:canva",   
       progress: "85%",
       isIconify: true,
     },
@@ -265,9 +265,6 @@ export default function Home() {
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, roleIndex]);
 
-  /* ===============================
-     COMPONENT JSX
-  =============================== */
 
   return (
     <div className="home">
@@ -275,7 +272,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-container">
           <div className="hero-content">
-            <div className="hero-text" data-aos="fade-right">
+            <div className="hero-text">
               <div className="hero-greeting">
                 <span className="wave">👋</span>
                 <span>Hello, I'm</span>
@@ -295,7 +292,6 @@ export default function Home() {
 
               <p className="hero-description">
                 Passionate Self-Taught Frontend Developer crafting modern, responsive, and user-focused web experiences. I turn ideas into clean, scalable, and visually engaging digital products.
-
               </p>
 
               <div className="hero-buttons">
@@ -303,8 +299,6 @@ export default function Home() {
                   href="/projects"
                   variant="primary"
                   icon="mdi:arrow-right"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
                 >
                   View My Work
                 </Button>
@@ -313,18 +307,16 @@ export default function Home() {
                   href="/contact"
                   variant="secondary"
                   icon="mdi:email"
-                  data-aos="fade-up"
-                  data-aos-delay="400"
                 >
                   Get In Touch
                 </Button>
               </div>
             </div>
-            <IconComponent icon="noto:rocket" className="code-icon" data-aos="zoom-in" data-aos-delay="600" />
-            <div className="hero-image" data-aos="fade-left">
+            <IconComponent icon="noto:rocket" className="code-icon" />
+            <div className="hero-image">
               <div className="hero-img-container">
                 <Image
-                  src={ImgAssets.HERO_BANNER}
+                  src={AppIcons.HeroBanner}
                   alt="Tejas Machhi"
                   width={400}
                   height={400}
@@ -335,9 +327,9 @@ export default function Home() {
             </div>
           </div>
           {/* ================= STATS ================= */}
-          <div className="hero-stats" ref={statsRef} data-aos="fade-up" data-aos-delay="80">
+          <div className="hero-stats" ref={statsRef}>
             {statsData.map((stat, index) => (
-              <div className="stat-item" key={index} data-aos="zoom-in" >
+              <div className="stat-item" key={index}>
 
                 <div className="stat-icon">
                   <IconComponent icon={stat.icon} />
@@ -365,7 +357,7 @@ export default function Home() {
 
 
 
-      <section className="about-section" data-aos="fade-up">
+      <section className="about-section">
         <About />
       </section>
       {/* ================= Experience section ================= */}
@@ -376,7 +368,7 @@ export default function Home() {
       {/* ================= SKILLS SECTION ================= */}
       <section className="skills">
         <div className="container">
-          <div className="section-header" data-aos="fade-up">
+          <div className="section-header">
             <h2 className="section-title">Technologies & Tools I Use</h2>
             <p className="section-subtitle">
               The technologies and tools I use to build clean, responsive, and high-performing web applications.
@@ -386,7 +378,7 @@ export default function Home() {
 
           <div className="skills-grid">
             {skillsData.map((skill, index) => (
-              <div className="skill-card" key={index} data-aos="zoom-in" data-aos-delay={50 * (index % 6)}>
+              <div className="skill-card" key={index}>
                 <div className="skill-icon">
                   {skill.isIconify ? (
                     <IconComponent icon={skill.icon} />
@@ -401,20 +393,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ================= FEATURED PROJECTS SECTION ================= */}
       <Projects />
 
       {/* ================= Service section ================= */}
       <section className="services-section">
         <Services />
       </section>
-
-
       {/* ================= CTA ================= */}
       <section className="contact-cta">
         <div className="container">
-          <div className="cta-content" data-aos="zoom-in">
+          <div className="cta-content">
             <h2>Let's Work Together</h2>
             <p>
               Have a project in mind? Let's create
@@ -425,8 +413,6 @@ export default function Home() {
               href="/contact"
               variant="primary"
               icon="mdi:send"
-              data-aos="fade-up"
-              data-aos-delay="200"
             >
               Get In Touch
             </Button>

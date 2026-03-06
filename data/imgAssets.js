@@ -1,24 +1,36 @@
 
 
+// Legacy imgAssets.js - Now using AppIcons for centralized management
+// This file is maintained for backward compatibility
+
+import { AppIcons } from './appIcons';
+
+// Re-export for backward compatibility
 export const ImgAssets = {
   // Hero Images
-  HERO_BANNER: "/assets/img/hero-image.png",      
-
-
-  // Technology Icons
-  CSS_ICON: "/assets/img/css.png",
-  HTML5_ICON: "/assets/img/html5.png",
-  BOOTSTRAP_ICON: "/assets/img/Bootstrap_logo.svg.png",
-  AI_TOOLS_ICON: "/assets/img/Ai-tools.png",
+  HERO_BANNER: AppIcons.HeroBanner,
+  
+  // Technology Icons (Legacy naming)
+  CSS_ICON: AppIcons.CSSIcon,
+  HTML5_ICON: AppIcons.HTML5Icon,
+  BOOTSTRAP_ICON: AppIcons.BootstrapIcon,
+  AI_TOOLS_ICON: AppIcons.AiToolsIcon,
   
   // Project Images
-  BLUE_BERRY_PROJECT: "/assets/img/blue-berry-p1.png",
-  OMEGA_PROJECT: "/assets/img/omega-rwd.png",
-  HUPP_TECH_PROJECT: "/assets/img/hupp-tech.png",
-  LOREM_IMPUS_PROJECT: "/assets/img/lorem-5-page.png",
-  ROCKET_MEDIA_PROJECT: "/assets/img/rocket-media.png",
-  COMING_SOON: "/assets/img/comming soon.jpg",
+  BLUE_BERRY_PROJECT: AppIcons.BlueBerryProject,
+  OMEGA_PROJECT: AppIcons.OmegaProject,
+  HUPP_TECH_PROJECT: AppIcons.HuppTechProject,
+  LOREM_IMPUS_PROJECT: AppIcons.LoremImpusProject,
+  ROCKET_MEDIA_PROJECT: AppIcons.RocketMediaProject,
+  COMING_SOON: AppIcons.ComingSoon,
 };
 
 // Export default for convenience
 export default ImgAssets;
+
+// Recommended: Use AppIcons directly for new development
+// Example usage:
+// import { AppIcons } from '@/data/appIcons';
+// import Image from 'next/image';
+// 
+// <Image src={AppIcons.heroBanner} alt="Hero Banner" width={1200} height={600} />

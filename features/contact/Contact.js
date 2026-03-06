@@ -86,7 +86,7 @@ ${formData.message}
             </div>
             
             <div className="contact-methods">
-              <div className="contact-method" data-aos="fade-right" data-aos-delay="100">
+              <div className="contact-method">
                 <div className="method-icon">
                   <IconComponent icon="mdi:email" />
                 </div>
@@ -97,7 +97,7 @@ ${formData.message}
                 </div>
               </div>
 
-              <div className="contact-method" data-aos="fade-right" data-aos-delay="200">
+              <div className="contact-method">
                 <div className="method-icon">
                   <IconComponent icon="mdi:phone" />
                 </div>
@@ -108,7 +108,7 @@ ${formData.message}
                 </div>
               </div>
 
-              <div className="contact-method" data-aos="fade-right" data-aos-delay="300">
+              <div className="contact-method">
                 <div className="method-icon">
                   <IconComponent icon="mdi:map-marker" />
                 </div>
