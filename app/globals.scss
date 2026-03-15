@@ -26,9 +26,8 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: calc(100% - 80px);
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 // Utility classes

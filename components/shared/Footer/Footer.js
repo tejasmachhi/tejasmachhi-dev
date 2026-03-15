@@ -25,16 +25,7 @@ export default function Footer() {
               I'm a passionate self-taught frontend developer who loves creating beautiful,
               responsive, and user-friendly websites.
             </p>
-            <div className="footer-stats">
-              <div className="stat">
-                <span className="stat-number">2+</span>
-                <span className="stat-label">Years Experience</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">50+</span>
-                <span className="stat-label">Projects Completed</span>
-              </div>
-            </div>
+         
           </div>
 
           <div className="footer-links">
@@ -43,6 +34,7 @@ export default function Footer() {
               <li><Link href="/">Home</Link></li>
               <li><Link href="/about-us">About</Link></li>
               <li><Link href="/projects">Projects</Link></li>
+              <li><Link href="/fun">Fun</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>

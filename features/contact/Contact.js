@@ -67,14 +67,34 @@ ${formData.message}
   return (
     <div className="contact">
       <div className="contact-bg-pattern"></div>
+      
+      {/* Hero Section */}
+      <div className="contact-hero">
+        <div className="container">
+          <div className="hero-content">
+            <div className="hero-badge">
+              <IconComponent icon="mdi:send" />
+              <span>Get In Touch</span>
+            </div>
+            <h1 className="hero-title">
+              Let's Create Something <span className="title-gradient">Amazing Together</span>
+            </h1>
+            <p className="hero-subtitle">
+              Whether you have a project in mind, want to collaborate, or just want to say hello - 
+              I'm always excited to connect with creative minds and explore new possibilities.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className="container">
         <div className="section-header">
           <div className="section-badge">Let's Connect</div>
           <h2 className="section-title">
-            <span className="title-gradient">Get In Touch</span>
+            <span className="title-gradient">Start The Conversation</span>
           </h2>
           <p className="section-subtitle">
-            Have a project in mind? Let's collaborate and create something amazing together
+            Choose your preferred way to reach out - I'm here to help bring your ideas to life
           </p>
         </div>
 

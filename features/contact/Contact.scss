@@ -14,7 +14,6 @@ $success: #10b981;
 $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
 
 .contact {
-  padding: 120px 0 80px;
   background: $bg;
   position: relative;
   overflow: hidden;
@@ -32,12 +31,82 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
     pointer-events: none;
   }
 
+  // Hero Section
+  .contact-hero {
+    position: relative;
+    padding: 140px 0 100px;
+    background: linear-gradient(135deg, 
+      rgba(79, 70, 229, 0.02) 0%, 
+      rgba(99, 102, 241, 0.03) 50%, 
+      rgba(55, 48, 163, 0.02) 100%);
+    overflow: hidden;
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background: rgba(79, 70, 229, 0.1);
+        color: $accent;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 32px;
+        border: 1px solid rgba(79, 70, 229, 0.2);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(79, 70, 229, 0.15);
+          transform: translateY(-2px);
+        }
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .hero-title {
+        font-size: 52px;
+        font-weight: 800;
+        color: $primary;
+        margin-bottom: 32px;
+        line-height: 1.1;
+
+        .title-gradient {
+          background: $gradient;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+      }
+
+      .hero-subtitle {
+        font-size: 20px;
+        color: $text-light;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+    }
+  }
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
     z-index: 1;
+
+    &:not(.contact-hero .container) {
+      padding: 80px 20px;
+    }
 
     .section-header {
       text-align: center;
@@ -425,10 +494,23 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
 // Mobile responsive
 @media (max-width: 968px) {
   .contact {
-    padding: 100px 0 60px;
+    .contact-hero {
+      padding: 120px 0 80px;
+
+      .hero-content {
+        .hero-title {
+          font-size: 42px;
+          margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+          font-size: 18px;
+        }
+      }
+    }
 
     .container {
-      padding: 0 16px;
+      padding: 60px 16px;
 
       .section-header {
         margin-bottom: 60px;
@@ -514,6 +596,27 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
 
 @media (max-width: 480px) {
   .contact {
+    .contact-hero {
+      padding: 100px 0 60px;
+
+      .hero-content {
+        .hero-badge {
+          padding: 10px 20px;
+          font-size: 13px;
+          margin-bottom: 24px;
+        }
+
+        .hero-title {
+          font-size: 36px;
+          margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+          font-size: 16px;
+        }
+      }
+    }
+
     .container {
       .section-header {
         .section-title {
