@@ -130,31 +130,32 @@ export default function Fun() {
           <div className="hero-content">
             <div className="hero-left">
               <div className="hero-badge">
-                <IconComponent icon="mdi:sparkles" />
-                <span>AI-Powered Future Insights</span>
+                <IconComponent icon="mdi:crystal-ball" />
+                <span>✨ AI-Powered Astrology & Divination</span>
               </div>
               
               <h1 className="hero-title">
-                <span className="title-gradient">AI Future Predictor</span>
+                <span className="title-gradient">Cosmic AI Oracle</span>
               </h1>
               
               <p className="hero-description">
-                Discover what the future holds with our advanced AI prediction system. 
-                Get personalized insights about your career, money, love, and health.
+                Unlock the mysteries of your destiny with our advanced AI astrology system. 
+                Receive celestial insights about your career path, romantic connections, 
+                wellness journey, and cosmic fortune.
               </p>
               
               <div className="hero-features">
                 <div className="feature-item">
-                  <IconComponent icon="mdi:brain" />
-                  <span>Advanced AI Technology</span>
+                  <IconComponent icon="mdi:star-crescent" />
+                  <span>Celestial AI Technology</span>
                 </div>
                 <div className="feature-item">
-                  <IconComponent icon="mdi:star" />
-                  <span>Personalized Predictions</span>
+                  <IconComponent icon="mdi:zodiac-aquarius" />
+                  <span>Astrological Predictions</span>
                 </div>
                 <div className="feature-item">
-                  <IconComponent icon="mdi:shield-check" />
-                  <span>Privacy First</span>
+                  <IconComponent icon="mdi:shield-star" />
+                  <span>Cosmic Privacy Protection</span>
                 </div>
               </div>
             </div>
@@ -166,18 +167,19 @@ export default function Fun() {
       <section className="predictor-section">
         <div className="disclaimer">
           <div className="disclaimer-content">
-            <IconComponent icon="mdi:information" className="disclaimer-icon" />
+            <IconComponent icon="mdi:zodiac-gemini" className="disclaimer-icon" />
             <div className="disclaimer-text">
-              <h3>For Entertainment Purposes Only</h3>
+              <h3>✨ For Entertainment & Cosmic Guidance Only</h3>
               <p>
-                This AI Future Predictor is a fun interactive feature designed for entertainment. 
-                The predictions are randomly generated and should not be taken seriously. 
-                While positive thinking can be beneficial, please don't make important life decisions 
-                based on these results. Have fun and enjoy the experience!
+                This AI Astrology Oracle is a mystical entertainment feature designed to inspire 
+                and delight. The celestial predictions are generated through advanced AI algorithms 
+                and should be enjoyed as positive guidance. While cosmic wisdom can be uplifting, 
+                please make important life decisions through careful consideration and professional advice. 
+                Embrace the magic and enjoy your celestial journey!
               </p>
               <div className="disclaimer-note">
                 <IconComponent icon="mdi:heart" />
-                <span>Remember: Your future is what you make of it!</span>
+                <span>Remember: You are the creator of your own destiny! ⭐</span>
               </div>
             </div>
           </div>
@@ -186,11 +188,11 @@ export default function Fun() {
         <div className="ai-future-predictor">
           <div className="predictor-header">
             <h2 className="predictor-title">
-              <IconComponent icon="mdi:brain" className="title-icon" />
-              Start Your Prediction Journey
+              <IconComponent icon="mdi:crystal-ball" className="title-icon" />
+              Begin Your Celestial Journey
             </h2>
             <p className="predictor-subtitle">
-              Fill in your details below to receive your personalized AI prediction
+              Share your cosmic details below to receive your personalized AI astrology reading
             </p>
           </div>
 
@@ -198,8 +200,8 @@ export default function Fun() {
             <div className="predictor-form">
               <div className="form-group">
                 <label className="form-label">
-                  <IconComponent icon="mdi:account" />
-                  Your Name
+                  <IconComponent icon="mdi:account-star" />
+                  Your Celestial Name
                 </label>
                 <input
                   type="text"
@@ -213,8 +215,8 @@ export default function Fun() {
 
               <div className="form-group">
                 <label className="form-label">
-                  <IconComponent icon="mdi:calendar" />
-                  Birth Year
+                  <IconComponent icon="mdi:calendar-star" />
+                  Birth Year (Cosmic Timestamp)
                 </label>
                 <input
                   type="number"
@@ -229,8 +231,8 @@ export default function Fun() {
 
               <div className="form-group">
                 <label className="form-label">
-                  <IconComponent icon="mdi:emoticon" />
-                  Current Mood
+                  <IconComponent icon="mdi:emoticon-happy" />
+                  Current Cosmic Energy
                 </label>
                 <div className="mood-selector">
                   {moods.map((moodOption) => (
@@ -256,12 +258,12 @@ export default function Fun() {
                 {isPredicting ? (
                   <>
                     <IconComponent icon="mdi:loading" className="spin-icon" />
-                    AI is analyzing your future...
+                    AI is reading the cosmos...
                   </>
                 ) : (
                   <>
                     <IconComponent icon="mdi:crystal-ball" />
-                    Predict My Future
+                    Reveal My Cosmic Destiny
                   </>
                 )}
               </Button>
@@ -270,8 +272,8 @@ export default function Fun() {
             <div className="prediction-result">
               <div className="result-header">
                 <h2 className="result-title">
-                  <IconComponent icon="mdi:star" className="star-icon" />
-                  Your AI Prediction
+                  <IconComponent icon="mdi:star-crescent" className="star-icon" />
+                  Your Celestial Reading
                 </h2>
                 <p className="result-subtitle">
                   {prediction.name}, age {prediction.age} • {prediction.mood} • {prediction.timestamp}
@@ -339,7 +341,7 @@ export default function Fun() {
               <div className="result-actions">
                 <Button variant="primary" onClick={resetPrediction} className="new-prediction-btn">
                   <IconComponent icon="mdi:refresh" />
-                  Get New Prediction
+                  Get New Cosmic Reading
                 </Button>
               </div>
             </div>
