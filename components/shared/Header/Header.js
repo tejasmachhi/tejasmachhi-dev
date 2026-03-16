@@ -70,6 +70,7 @@ export default function Header() {
             <Link href="/" className="mobile-nav-link" onClick={closeMenu}>Home</Link>
             <Link href="/about-us" className="mobile-nav-link" onClick={closeMenu}>About</Link>
             <Link href="/projects" className="mobile-nav-link" onClick={closeMenu}>Projects</Link>
+            <Link href="/fun" className="mobile-nav-link" onClick={closeMenu}>Fun</Link>
             <Link href="/contact" className="mobile-nav-link" onClick={closeMenu}>Contact</Link>
           </div>
         </div>

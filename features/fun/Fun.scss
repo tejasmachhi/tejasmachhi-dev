@@ -69,6 +69,32 @@
         margin-bottom: 30px;
         line-height: 1.5;
       }
+
+      .hero-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
+
+        .feature-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 12px 20px;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 50px;
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 0.9rem;
+          font-weight: 500;
+
+          svg {
+            font-size: 1.1rem;
+            color: #fbbf24;
+          }
+        }
+      }
     }
   }
 
@@ -83,6 +109,15 @@
 
       .hero-left {
         max-width: 600px;
+
+        .hero-features {
+          gap: 15px;
+
+          .feature-item {
+            font-size: 0.85rem;
+            padding: 10px 16px;
+          }
+        }
       }
     }
   }
@@ -93,7 +128,7 @@
 
       .hero-content {
         gap: 20px;
-        margin-top: 30px;
+        margin-top: 45px;
       }
 
       .hero-left {
@@ -103,6 +138,17 @@
 
         .hero-description {
           font-size: 1rem;
+        }
+
+        .hero-features {
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+
+          .feature-item {
+            font-size: 0.8rem;
+            padding: 8px 16px;
+          }
         }
       }
     }
@@ -114,7 +160,7 @@
 
       .hero-content {
         gap: 15px;
-        margin-top: 20px;
+
       }
 
       .hero-left {
@@ -124,6 +170,15 @@
 
         .hero-description {
           font-size: 0.9rem;
+        }
+
+        .hero-features {
+          gap: 10px;
+
+          .feature-item {
+            font-size: 0.75rem;
+            padding: 6px 12px;
+          }
         }
       }
     }
@@ -409,10 +464,21 @@
               margin: 0;
             }
 
-            &.career { border-left: 3px solid #3b82f6; }
-            &.money { border-left: 3px solid #10b981; }
-            &.love { border-left: 3px solid #ef4444; }
-            &.health { border-left: 3px solid #8b5cf6; }
+            &.career {
+              border-left: 3px solid #3b82f6;
+            }
+
+            &.money {
+              border-left: 3px solid #10b981;
+            }
+
+            &.love {
+              border-left: 3px solid #ef4444;
+            }
+
+            &.health {
+              border-left: 3px solid #8b5cf6;
+            }
           }
         }
 
@@ -491,122 +557,16 @@
   }
 
   @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @media (max-width: 1200px) {
-    .fun-hero {
-      .hero-content {
-        gap: 30px;
-        margin-top: 40px;
-      }
-
-      .hero-left {
-        max-width: 500px;
-      }
-
-      .hero-right {
-        .hero-visual {
-          max-width: 280px;
-        }
-
-        .crystal-ball {
-          width: 100px;
-          height: 100px;
-
-          .crystal-inner {
-            font-size: 2.5rem;
-          }
-        }
-
-        .floating-cards {
-          height: 140px;
-        }
-      }
+    from {
+      transform: rotate(0deg);
     }
-  }
 
-  @media (max-width: 1024px) {
-    .fun-hero {
-      padding: 50px 15px;
-
-      .hero-content {
-        flex-direction: column;
-        gap: 25px;
-        text-align: center;
-        margin-top: 30px;
-      }
-
-      .hero-left {
-        text-align: center;
-        max-width: 600px;
-      }
-
-      .hero-right {
-        .hero-visual {
-          max-width: 240px;
-        }
-
-        .crystal-ball {
-          width: 90px;
-          height: 90px;
-
-          .crystal-inner {
-            font-size: 2.2rem;
-          }
-        }
-
-        .floating-cards {
-          height: 120px;
-        }
-      }
+    to {
+      transform: rotate(360deg);
     }
   }
 
   @media (max-width: 768px) {
-    .fun-hero {
-      padding: 40px 15px;
-
-      .hero-content {
-        gap: 20px;
-        margin-top: 25px;
-      }
-
-      .hero-title {
-        font-size: 2rem;
-      }
-
-      .hero-description {
-        font-size: 1rem;
-      }
-
-      .hero-stats {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .hero-right {
-        .hero-visual {
-          max-width: 220px;
-        }
-
-        .crystal-ball {
-          width: 80px;
-          height: 80px;
-
-          .crystal-inner {
-            font-size: 2rem;
-          }
-        }
-
-        .floating-cards {
-          height: 100px;
-        }
-      }
-    }
-
     .predictor-section {
       padding: 40px 15px;
 
@@ -623,51 +583,6 @@
   }
 
   @media (max-width: 480px) {
-    .fun-hero {
-      padding: 30px 10px;
-
-      .hero-content {
-        gap: 15px;
-        margin-top: 20px;
-      }
-
-      .hero-title {
-        font-size: 1.5rem;
-      }
-
-      .hero-description {
-        font-size: 0.9rem;
-      }
-
-      .hero-stats {
-        gap: 12px;
-      }
-
-      .hero-right {
-        .hero-visual {
-          max-width: 200px;
-        }
-
-        .crystal-ball {
-          width: 70px;
-          height: 70px;
-
-          .crystal-inner {
-            font-size: 1.8rem;
-          }
-        }
-
-        .floating-cards {
-          height: 80px;
-        }
-
-        .prediction-card {
-          font-size: 0.7rem;
-          padding: 6px 10px;
-        }
-      }
-    }
-
     .predictor-section {
       padding: 30px 10px;
 
@@ -678,54 +593,6 @@
           .mood-selector {
             grid-template-columns: 1fr;
           }
-        }
-      }
-    }
-  }
-
-  @media (max-width: 380px) {
-    .fun-hero {
-      padding: 25px 8px;
-
-      .hero-content {
-        gap: 12px;
-        margin-top: 15px;
-      }
-
-      .hero-title {
-        font-size: 1.3rem;
-      }
-
-      .hero-description {
-        font-size: 0.85rem;
-        margin-bottom: 20px;
-      }
-
-      .hero-stats {
-        gap: 10px;
-      }
-
-      .hero-right {
-        .hero-visual {
-          max-width: 180px;
-        }
-
-        .crystal-ball {
-          width: 60px;
-          height: 60px;
-
-          .crystal-inner {
-            font-size: 1.5rem;
-          }
-        }
-
-        .floating-cards {
-          height: 60px;
-        }
-
-        .prediction-card {
-          font-size: 0.6rem;
-          padding: 5px 8px;
         }
       }
     }

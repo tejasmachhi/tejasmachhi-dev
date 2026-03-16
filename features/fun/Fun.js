@@ -143,10 +143,21 @@ export default function Fun() {
                 Get personalized insights about your career, money, love, and health.
               </p>
               
-            
+              <div className="hero-features">
+                <div className="feature-item">
+                  <IconComponent icon="mdi:brain" />
+                  <span>Advanced AI Technology</span>
+                </div>
+                <div className="feature-item">
+                  <IconComponent icon="mdi:star" />
+                  <span>Personalized Predictions</span>
+                </div>
+                <div className="feature-item">
+                  <IconComponent icon="mdi:shield-check" />
+                  <span>Privacy First</span>
+                </div>
+              </div>
             </div>
-            
-       
           </div>
         </div>
       </section>
