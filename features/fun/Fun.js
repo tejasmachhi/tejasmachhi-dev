@@ -30,36 +30,59 @@ export default function Fun() {
 
     // Simulate AI processing
     setTimeout(() => {
-      const predictions = {
-        career: [
-          'A major career opportunity is coming your way',
-          'Your hard work will be recognized soon',
-          'A promotion or new job is in your future',
-          'Your skills will be in high demand',
-          'Success is just around the corner'
-        ],
-        money: [
-          'Unexpected financial gain is coming',
-          'Your investments will pay off',
-          'A new source of income will appear',
-          'Financial stability is approaching',
-          'Money will flow to you naturally'
-        ],
-        love: [
-          'Love is in the air for you',
-          'Someone special will enter your life',
-          'Your relationship will flourish',
-          'Romance is coming your way',
-          'Heart connections will strengthen'
-        ],
-        health: [
-          'Great health and vitality await you',
-          'Your energy levels will increase',
-          'Fitness goals will be achieved',
-          'Wellness and balance are coming',
-          'Your body will feel revitalized'
-        ]
-      };
+ const predictions = {
+  career: [
+    "A major career opportunity will soon appear that could completely change your professional path.",
+    "Your hard work and dedication will finally be noticed by the right people.",
+    "A promotion or exciting new job role is closer than you think.",
+    "Your unique skills will soon be in high demand in your field.",
+    "Success is just around the corner if you keep moving forward.",
+    "A powerful connection or mentor may guide you toward a better career path.",
+    "An unexpected project will showcase your true potential.",
+    "Your creativity and ideas will bring recognition at work.",
+    "A bold career decision will lead to long-term success.",
+    "A new learning opportunity will help you grow faster than before."
+  ],
+
+  money: [
+    "An unexpected financial opportunity may bring extra income into your life.",
+    "Your smart decisions and patience will soon pay off financially.",
+    "A new source of income could appear through creativity or side work.",
+    "Financial stability is approaching as your efforts start showing results.",
+    "Money will begin to flow more naturally when you follow the right path.",
+    "A profitable idea might turn into something bigger than expected.",
+    "Someone may offer a partnership that improves your financial future.",
+    "Your budgeting habits will soon help you save more than before.",
+    "A small investment could grow into a meaningful return.",
+    "Financial growth will come when you trust your instincts."
+  ],
+
+  love: [
+    "Love is slowly entering your life in a beautiful and unexpected way.",
+    "Someone special may soon cross your path and change your perspective on relationships.",
+    "Your current relationship will grow stronger with deeper understanding.",
+    "Romance and emotional connection are getting closer to you.",
+    "Your heart will open to new experiences and meaningful bonds.",
+    "A conversation with someone important could strengthen your relationship.",
+    "A surprising moment will make you realize how valued you truly are.",
+    "Your kindness will attract positive energy in your love life.",
+    "A new friendship might slowly turn into something deeper.",
+    "Emotional balance will bring harmony to your relationships."
+  ],
+
+  health: [
+    "Your body and mind will soon feel stronger and more balanced.",
+    "Energy and motivation will increase as you focus more on your wellbeing.",
+    "Small lifestyle changes will bring big improvements to your health.",
+    "Your fitness goals will start becoming easier to achieve.",
+    "Mental clarity and inner peace are approaching.",
+    "A healthy routine will help you feel refreshed every day.",
+    "Your dedication to self-care will bring positive results.",
+    "You will discover new motivation to stay active and healthy.",
+    "Rest and balance will improve your overall vitality.",
+    "A positive mindset will support both your physical and mental health."
+  ]
+};
 
       const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Purple', 'Orange', 'Pink', 'Black', 'White', 'Gold'];
       const numbers = Array.from({ length: 20 }, (_, i) => i + 1);
