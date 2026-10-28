@@ -143,10 +143,10 @@ ${formData.message}
             <div className="social-links">
               <h4>Connect on Social Media</h4>
               <div className="social-icons">
-                <a href="#" className="social-link" aria-label="GitHub">
+                <a href="https://github.com/tejasmachhi" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
                   <IconComponent icon="mdi:github" />
                 </a>
-                <a href="#" className="social-link" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/tejas-machhi-470388187/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
                   <IconComponent icon="mdi:linkedin" />
                 </a>
                 <a href="#" className="social-link" aria-label="Twitter">

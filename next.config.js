@@ -7,6 +7,7 @@ const nextConfig = {
   sassOptions: {
     includePaths: ['./components', './features'],
   },
+  swcMinify: true,
 };
 
 module.exports = nextConfig;

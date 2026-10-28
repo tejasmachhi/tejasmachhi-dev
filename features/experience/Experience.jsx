@@ -1,36 +1,106 @@
   "use client";
+  import { useState } from "react";
   import IconComponent from "@/components/IconComponent";
+  import { useRouter } from "next/navigation";
+  import ExperienceProjectsModal from "./ExperienceProjectsModal";
   import "./Experience.scss";
 
   export default function Experience() {
+    const router = useRouter();
+    const [selectedExperienceModal, setSelectedExperienceModal] = useState(null);
+
     const experiences = [
       {
         company: "Moltech Solution Pvt Ltd",
         location: "Ahmedabad, Gujarat",
         period: "May 2025 – Present",
-        position: "Frontend Web Developer",
+        position: "Frontend Web Developer (UI/UX Focus)",
         type: "full-time",
         description: [
-          "Designed and developed modern UI components using <span class='tech-highlight'>React.js</span> and <span class='tech-highlight'>Next.js</span> with pixel-perfect <span class='tech-highlight'>Figma</span> implementation",
-          "Implemented <span class='tech-highlight'>SEO</span> optimization strategies including meta tags, structured data, and performance improvements",
-          "Built responsive, reusable component libraries with proper prop interfaces and documentation",
-          "Created custom hooks and utility functions for scalable <span class='tech-highlight'>React</span> architecture",
-          "Optimized UI performance through code splitting, lazy loading, and component memoization",
-          "Collaborated with design teams to translate <span class='tech-highlight'>Figma</span> designs into production-ready, accessible interfaces"
+          "Engineered responsive web interfaces and enterprise admin dashboards using <span class='tech-highlight'>React.js</span>, <span class='tech-highlight'>Next.js</span>, and <span class='tech-highlight'>PrimeReact</span>",
+          "Transformed high-fidelity <span class='tech-highlight'>Figma</span> designs into pixel-perfect, accessible, and responsive components across all breakpoints",
+          "Implemented fluid animations and micro-interactions with <span class='tech-highlight'>Framer Motion</span> & modern CSS to deliver engaging UI/UX",
+          "Customized complex enterprise UI component systems including data tables, filter toolbars, dialog modals, and multi-step forms",
+          "Structured modular, scalable <span class='tech-highlight'>SCSS</span> architectures utilizing variables, mixins, and flex/grid patterns to eliminate styling redundancy"
         ].map(item => ({ text: item, isHtml: true })),
+        projects: [
+          {
+            title: "Order Management System",
+            category: "Enterprise Platform",
+            highlights: [
+              "Designed and managed complex data grids, tables, filters, action controls, modals, forms, cards, dashboards, and multi-data UI layouts",
+              "Customized PrimeReact components with SCSS according to enterprise requirements",
+              "Implemented reusable theme and color-palette systems, variables, mixins, and shared utilities",
+              "Optimized data grid column widths, text wrapping, height handling, search behavior, and alignment",
+              "Executed continuous QA bug fixing, layout refinements, and screen-size testing up to laptop resolution"
+            ]
+          },
+          {
+            title: "HRMS / Human Resource Management Platform",
+            category: "Enterprise HR Portal",
+            highlights: [
+              "Developed HR management modules using React and PrimeReact",
+              "Customized data grids, frozen columns, dialogs, cards, badges, progress bars, attendance interfaces, and filters",
+              "Built dynamic, data-driven UI sections, employee workflows, dashboards, and reusable patterns"
+            ]
+          },
+          {
+            title: "Matrimony Website",
+            category: "Consumer Web Portal",
+            highlights: [
+              "Designed and developed a modern, user-friendly Matrimony UI using HTML, CSS, and SCSS",
+              "Implemented reusable SCSS patterns avoiding duplicate styling across responsive layouts",
+              "Enhanced typography, cards, search filters, forms, buttons, and user experience"
+            ]
+          },
+          {
+            title: "E-commerce Templates",
+            category: "E-Commerce Suite",
+            highlights: [
+              "Developed product listings, detail pages, checkout flows, cart sections, order summaries, and profile screens",
+              "Built responsive product grids, filters, cards, and shopping workflows across mobile, tablet, and desktop"
+            ]
+          },
+          {
+            title: "Business & Service Websites",
+            category: "Corporate & Services",
+            highlights: [
+              "Created responsive service pages, technology sections, headers, footers, search interfaces, and modals",
+              "Applied SCSS variables, mixins, steppers, dropdowns, and shared UI architecture"
+            ]
+          },
+          {
+            title: "Document & Email Template UI",
+            category: "Templates & Communications",
+            highlights: [
+              "Designed structured UI layouts for document templates and email templates",
+              "Maintained typographic hierarchy, tables, spacing, and strict visual fidelity"
+            ]
+          },
+          {
+            title: "Client Requirements & UI Delivery",
+            category: "Client Delivery & QA",
+            highlights: [
+              "Translated client design specifications and Figma mockups into production-ready UI layouts",
+              "Conducted end-to-end UI validation, spacing, responsiveness, and component consistency before delivery"
+            ]
+          }
+        ],
         technologies: [
-          { name: "Next.js", icon: "logos:nextjs-icon", isIconify: true },
           { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+          { name: "Next.js", icon: "logos:nextjs-icon", isIconify: true },
+          { name: "PrimeReact", icon: "logos:primereact", isIconify: true },
+          { name: "Framer Motion", icon: "logos:framer", isIconify: true },
           { name: "SCSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
           { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
           { name: "Tailwind CSS", icon: "logos:tailwindcss-icon", isIconify: true },
+          { name: "AI Tools (R&D)", icon: "mdi:robot-excited-outline", isIconify: true },
+          { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
           { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
           { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-          { name: "Canva", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
-          { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-          { name: "Strapi", icon: "logos:strapi-icon", isIconify: true }
+          { name: "Canva", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" }
         ],
-        icon: "mdi:office-building"
+        icon: "mdi:code-tags"
       },
       {
         company: "DIT Academy",
@@ -104,80 +174,124 @@
             </p>
           </div>
 
-     
+          {/* Resume Action Banner */}
+          <div className="resume-cta-banner">
+            <div className="resume-cta-info">
+              <h3 className="resume-cta-title">Looking for my Official Resume?</h3>
+              <p className="resume-cta-desc">
+                Review my structured work history, categorized tech stack, and key project contributions in a modern interactive view, or export directly as a print-ready PDF.
+              </p>
+            </div>
+            <div className="resume-cta-actions">
+              <button 
+                type="button" 
+                className="resume-btn-view"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-resume-modal'))}
+              >
+                <IconComponent icon="mdi:eye-outline" />
+                <span>View Resume</span>
+              </button>
+              <button 
+                type="button" 
+                className="resume-btn-download"
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent('open-resume-modal'));
+                  setTimeout(() => window.print(), 350);
+                }}
+              >
+                <IconComponent icon="mdi:download" />
+                <span>Download PDF</span>
+              </button>
+            </div>
+          </div>
 
           <div className="experience-timeline">
-            <div className="experience-grid">
+            <div className="timeline-track">
               {experiences.map((exp, index) => (
                 <div 
                   key={index} 
-                  className={`experience-card ${index === 0 ? 'current' : ''}`}
+                  className={`timeline-item ${index === 0 ? 'current' : ''}`}
                 >
-                  <div className="card-header">
-                    <div className="company-icon">
+                  {/* Timeline Spine Node */}
+                  <div className="timeline-node">
+                    <div className="node-icon">
                       <IconComponent icon={exp.icon} />
                     </div>
-                    <div className="company-info">
-                      <h3>{exp.company}</h3>
-                      <div className="position-badge">
-                        <span className={`badge ${exp.type}`}>
+                    {index < experiences.length - 1 && <div className="node-line" />}
+                  </div>
+
+                  {/* Timeline Card */}
+                  <div className="timeline-card">
+                    <div className="card-top-bar">
+                      <div className="company-info-group">
+                        <h3 className="company-name">{exp.company}</h3>
+                        <span className={`position-badge ${exp.type}`}>
                           {exp.position}
                         </span>
                       </div>
+                      <div className="period-badge">
+                        <IconComponent icon="mdi:calendar-range" />
+                        <span>{exp.period}</span>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="card-meta">
-                    <div className="meta-item">
-                      <IconComponent icon="mdi:map-marker" />
+                    <div className="location-row">
+                      <IconComponent icon="mdi:map-marker-outline" />
                       <span>{exp.location}</span>
                     </div>
-                    <div className="meta-item">
-                      <IconComponent icon="mdi:calendar" />
-                      <span>{exp.period}</span>
-                    </div>
-                  </div>
 
-                  <div className="card-content">
-                    <ul className="responsibilities">
+                    <ul className="responsibilities-list">
                       {exp.description.map((item, idx) => (
                         <li key={idx}>
                           <IconComponent icon="mdi:check-circle" />
                           {typeof item === 'object' ? (
                             <span dangerouslySetInnerHTML={{ __html: item.text }} />
                           ) : (
-                            item
+                            <span>{item}</span>
                           )}
                         </li>
                       ))}
                     </ul>
-                  </div>
 
-                  <div className="card-footer">
-                    <div className="tech-stack">
-                      <span className="tech-label">Technologies:</span>
-                      <div className="tech-list">
+                    {exp.projects && (
+                      <div className="timeline-project-cta">
+                        <button 
+                          type="button" 
+                          className="btn-open-projects-modal"
+                          onClick={() => setSelectedExperienceModal(exp)}
+                        >
+                          <div className="cta-left">
+                            <IconComponent icon="mdi:folder-star-multiple" />
+                            <div className="cta-titles">
+                              <span className="main-title">Key Projects & Modules ({exp.projects.length})</span>
+                              <span className="sub-title">Detailed breakdown of 7 enterprise modules at Moltech</span>
+                            </div>
+                          </div>
+                          <div className="cta-right">
+                            <span className="action-pill">View All Modules</span>
+                            <IconComponent icon="mdi:arrow-top-right" />
+                          </div>
+                        </button>
+                      </div>
+                    )}
+
+                    <div className="card-tech-footer">
+                      <span className="tech-heading">Technologies:</span>
+                      <div className="tech-tags-list">
                         {exp.technologies.map((tech, idx) => (
-                          <span key={idx} className="tech-tag">
+                          <span key={idx} className="timeline-tech-tag">
                             {tech.isIconify ? (
                               <IconComponent 
                                 icon={tech.icon} 
                                 className="tech-icon"
-                                style={{ 
-                                  fontSize: '11px',
-                                  marginRight: '4px'
-                                }} 
+                                style={{ fontSize: '12px' }} 
                               />
                             ) : (
                               <img 
                                 src={tech.icon} 
-                                alt={tech.name}
+                                alt={tech.name} 
                                 className="tech-icon"
-                                style={{ 
-                                  width: '11px',
-                                  height: '11px',
-                                  marginRight: '4px'
-                                }}
+                                style={{ width: '12px', height: '12px' }}
                               />
                             )}
                             {tech.name}
@@ -191,6 +305,13 @@
             </div>
           </div>
         </div>
+
+        {/* Experience Projects & Modules Modal */}
+        <ExperienceProjectsModal 
+          experience={selectedExperienceModal}
+          isOpen={Boolean(selectedExperienceModal)}
+          onClose={() => setSelectedExperienceModal(null)}
+        />
       </section>
     );
   }

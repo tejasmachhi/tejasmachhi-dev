@@ -7,39 +7,52 @@ $white: #ffffff;
 $gray: #6b7280;
 $light-gray: #f3f4f6;
 
+$border-radius: 12px;
+$border-color: rgba(0, 0, 0, 0.08);
+$card-bg: #ffffff;
+$section-spacing: 70px;
+
 .projects {
-  padding: 120px 0 80px;
-  background: linear-gradient(135deg, $bg 0%, $white 100%);
+  padding: 80px 0 $section-spacing;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 
   .container {
-    max-width: 1200px;
+    width: calc(100% - 64px);
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      width: calc(100% - 32px);
+    }
 
     .section-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 48px;
 
       .section-title {
-        font-size: 42px;
+        font-size: 38px;
         font-weight: 700;
         color: $primary;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
       }
 
       .section-subtitle {
-        font-size: 18px;
+        font-size: 16px;
         color: $gray;
         max-width: 600px;
         margin: 0 auto;
+        line-height: 1.5;
       }
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
-      align-items: stretch;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      width: 100%;
     }
   }
 }
@@ -47,34 +60,21 @@ $light-gray: #f3f4f6;
 // Mobile responsive
 @media (max-width: 768px) {
   .projects {
-    padding: 100px 0 60px;
+    padding: 60px 0 50px;
 
     .container {
-      padding: 0 16px;
-
       .section-header {
-        margin-bottom: 40px;
+        margin-bottom: 36px;
 
         .section-title {
-          font-size: 32px;
+          font-size: 28px;
         }
 
         .section-subtitle {
-          font-size: 16px;
+          font-size: 15px;
         }
       }
 
-      .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .projects {
-    .container {
       .projects-grid {
         grid-template-columns: 1fr;
         gap: 20px;

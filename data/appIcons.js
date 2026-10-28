@@ -10,6 +10,7 @@ import bootstrapIcon from "../public/assets/img/Bootstrap_logo.svg.png";
 import aiToolsIcon from "../public/assets/img/Ai-tools.png";
 
 // ==================== Project Images ====================
+import unnatiEnterpriseProject from "../public/assets/img/Unnati-Enterprise.png";
 import blueBerryProject from "../public/assets/img/blue-berry-p1.png";
 import omegaProject from "../public/assets/img/omega-rwd.png";
 import huppTechProject from "../public/assets/img/hupp-tech.png";
@@ -30,6 +31,7 @@ export const AppIcons = {
   AiToolsIcon: aiToolsIcon,
   
   // Project Images
+  UnnatiEnterpriseProject: unnatiEnterpriseProject,
   BlueBerryProject: blueBerryProject,
   OmegaProject: omegaProject,
   HuppTechProject: huppTechProject,

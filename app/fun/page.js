@@ -5,21 +5,21 @@ export default function FunPage() {
 }
 
 export const metadata = {
-  title: 'AI Astrology | Tejas Machhi',
-  description: 'Get your personalized AI astrology reading. Discover insights about your career, love, health, and fortune.',
-  keywords: ['AI Astrology', 'Astrology Reading', 'Fortune Telling', 'AI Predictions'],
-  authors: [{ name: 'Tejas Machhi' }],
+  title: 'AI Life Coach | ',
+  description: 'Get personalized life coaching advice for clarity, confidence, and direction. Practical guidance for Indian youth.',
+  keywords: ['AI Life Coach', 'Life Coaching', 'Career Guidance', 'Personal Development', 'Youth Mentorship'],
+  authors: [{ name: '' }],
   openGraph: {
-    title: 'AI Astrology | Tejas Machhi',
-    description: 'Get your personalized AI astrology reading. Discover insights about your career, love, health, and fortune.',
+    title: 'AI Life Coach | ',
+    description: 'Get personalized life coaching advice for clarity, confidence, and direction. Practical guidance for Indian youth.',
     url: 'https://tejasmachhi.com/fun',
-    siteName: 'Tejas Machhi - AI Astrology',
+    siteName: ' - AI Life Coach',
     images: [
       {
-        url: '/assets/img/ai-astrology-preview.jpg',
+        url: '/assets/img/ai-life-coach-preview.jpg',
         width: 1200,
         height: 630,
-        alt: 'AI Astrology by Tejas Machhi'
+        alt: 'AI Life Coach by '
       }
     ],
     locale: 'en_US',
@@ -27,8 +27,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Astrology | Tejas Machhi',
-    description: 'Get your personalized AI astrology reading. Discover insights about your career, love, health, and fortune.',
-    images: ['/assets/img/ai-astrology-preview.jpg']
+    title: 'AI Life Coach | ',
+    description: 'Get personalized life coaching advice for clarity, confidence, and direction. Practical guidance for Indian youth.',
+    images: ['/assets/img/ai-life-coach-preview.jpg']
   }
 };

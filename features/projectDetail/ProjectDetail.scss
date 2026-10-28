@@ -7,15 +7,27 @@ $white: #ffffff;
 $gray: #6b7280;
 $light-gray: #f3f4f6;
 
+$border-radius: 8px;
+$border-radius-sm: 6px;
+$border-color: rgba(0, 0, 0, 0.08);
+$card-bg: #ffffff;
+$section-spacing: 80px;
+$card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+
 .project-detail {
-  padding: 120px 0 80px;
+  padding: 120px 0 $section-spacing;
   background: linear-gradient(135deg, $bg 0%, $white 100%);
   min-height: 100vh;
 
   .container {
-    max-width: 1200px;
+    width: calc(100% - 64px);
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      width: calc(100% - 32px);
+    }
 
     .back-nav {
       margin-bottom: 40px;
@@ -32,8 +44,9 @@ $light-gray: #f3f4f6;
         .project-img {
           width: 100%;
           height: auto;
-          border-radius: 16px;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+          border-radius: $border-radius;
+          box-shadow: $card-shadow;
+          border: 1px solid $border-color;
         }
       }
 

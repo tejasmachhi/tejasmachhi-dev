@@ -24,10 +24,10 @@ export default function Services() {
         "Optimizing websites for speed, accessibility, and better performance.",
     },
     {
-      icon: "mdi:youtube",
-      title: "Canva YouTube Thumbnail Design",
+      icon: "mdi:code-json",
+      title: "Design-to-Code & Components",
       description:
-        "Designing scroll-stopping YouTube thumbnails in Canva that increase click-through rates and boost video engagement.",
+        "Transforming Figma and UI mockups into production-ready, reusable React/Next.js components with clean SCSS.",
     },
 
   ];

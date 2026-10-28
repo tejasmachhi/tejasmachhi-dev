@@ -1,148 +1,202 @@
 // Variables
-$primary: #111;
+$primary: #0f172a;
 $accent: #4f46e5;
-$text: #333;
-$bg: #f9f9f9;
-$white: #ffffff;
-$gray: #6b7280;
-$light-gray: #f3f4f6;
+$accent-hover: #4338ca;
+$text: #374151;
+$text-muted: #64748b;
+$card-bg: #ffffff;
+$border-color: rgba(226, 232, 240, 0.95);
+$border-hover: rgba(99, 102, 241, 0.45);
+$light-gray: #f1f5f9;
 
 .project-card {
-  background-color: $white;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: $card-bg;
+  border-radius: 16px;
+  border: 1px solid $border-color;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-
-    .project-overlay {
-      opacity: 1;
-    }
+    border-color: $border-hover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   }
 
+  // Project Image on top
   .project-image {
     position: relative;
-    height: 250px;
+    width: 100%;
+    height: 270px;
+    background-color: #f1f5f9;
     overflow: hidden;
+    flex-shrink: 0;
+
+    .project-image-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+    }
 
     .project-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      object-position: top center;
+      display: block;
     }
 
     .project-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba($accent, 0.9), rgba($primary, 0.8));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-
-      .project-links {
-        display: flex;
-        gap: 16px;
-
-        .project-link {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 48px;
-          height: 48px;
-          background-color: rgba($white, 0.2);
-          color: $white;
-          text-decoration: none;
-          border-radius: 50%;
-          transition: all 0.3s ease;
-          backdrop-filter: blur(10px);
-
-          &:hover {
-            background-color: $white;
-            color: $accent;
-            transform: scale(1.1);
-          }
-
-          svg {
-            width: 20px;
-            height: 20px;
-          }
-        }
-      }
+      display: none;
     }
   }
 
+  // Project Content below
   .project-content {
-    padding: 24px;
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
 
-    h3 {
-      color: $primary;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 12px;
+    .project-title-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+
+      h3 {
+        color: $primary;
+        font-size: 21px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        line-height: 1.3;
+        transition: color 0.2s ease;
+      }
+
+      &:hover h3 {
+        color: $accent;
+      }
     }
 
     p {
-      color: $gray;
+      color: $text-muted;
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       font-size: 14px;
+      flex-grow: 1;
     }
 
     .project-tech {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-bottom: 20px;
 
       .tech-tag {
         background-color: $light-gray;
-        color: $text;
-        padding: 6px 12px;
+        color: #334155;
+        padding: 5px 12px;
         border-radius: 20px;
         font-size: 12px;
         font-weight: 500;
-        transition: all 0.3s ease;
+        transition: background-color 0.2s ease, color 0.2s ease;
 
         &:hover {
           background-color: $accent;
-          color: $white;
+          color: #ffffff;
+        }
+      }
+    }
+
+    .project-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(226, 232, 240, 0.9);
+
+      .action-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 9px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+
+        &.live-btn {
+          background-color: $accent;
+          color: #ffffff;
+          flex: 1;
+
+          &:hover {
+            background-color: $accent-hover;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+          }
+        }
+
+        &.github-btn {
+          background-color: #f8fafc;
+          color: #1e293b;
+          border: 1px solid $border-color;
+
+          &:hover {
+            background-color: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+          }
+        }
+
+        &.details-btn {
+          background-color: transparent;
+          color: #475569;
+          border: 1px solid $border-color;
+
+          &:hover {
+            color: $accent;
+            border-color: $accent;
+            background-color: rgba(79, 70, 229, 0.04);
+          }
         }
       }
     }
   }
 }
 
-// Mobile responsive
-@media (max-width: 768px) {
+// Mobile responsiveness
+@media (max-width: 576px) {
   .project-card {
     .project-image {
       height: 200px;
     }
 
     .project-content {
-      padding: 20px;
+      padding: 18px 16px;
 
-      h3 {
-        font-size: 18px;
-      }
+      .project-actions {
+        flex-wrap: wrap;
+        gap: 8px;
 
-      p {
-        font-size: 13px;
-      }
+        .action-btn {
+          font-size: 12.5px;
+          padding: 8px 12px;
 
-      .project-tech {
-        .tech-tag {
-          font-size: 11px;
-          padding: 4px 10px;
+          &.live-btn {
+            flex: 1 1 100%;
+          }
         }
       }
     }

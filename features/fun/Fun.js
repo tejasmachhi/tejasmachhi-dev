@@ -1,127 +1,176 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import IconComponent from '@/components/IconComponent';
 import Button from '@/components/ui/Button/Button';
 import './Fun.scss';
 
 export default function Fun() {
-  const [name, setName] = useState('');
-  const [birthYear, setBirthYear] = useState('');
-  const [mood, setMood] = useState('');
-  const [prediction, setPrediction] = useState(null);
-  const [isPredicting, setIsPredicting] = useState(false);
+  const [messages, setMessages] = useState([
+    { id: 1, sender: 'bot', text: 'Hi there! 👋 I am your AI Life Coach.' },
+    { id: 2, sender: 'bot', text: 'I am here to give you practical advice and a fresh perspective.' },
+    { id: 3, sender: 'bot', text: 'To give you the best advice, how old are you?' }
+  ]);
+  const [currentStep, setCurrentStep] = useState('age'); // 'age', 'challenge', 'situation', 'processing', 'done'
+  const [age, setAge] = useState('');
+  const [challenge, setChallenge] = useState('');
+  const [situation, setSituation] = useState('');
+  const [inputValue, setInputValue] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
 
-  const moods = [
-    { emoji: '😊', label: 'Happy', value: 'happy' },
-    { emoji: '😐', label: 'Neutral', value: 'neutral' },
-    { emoji: '😢', label: 'Sad', value: 'sad' },
-    { emoji: '😡', label: 'Angry', value: 'angry' },
-    { emoji: '😎', label: 'Confident', value: 'confident' },
-    { emoji: '🤔', label: 'Confused', value: 'confused' }
+  const chatMessagesRef = useRef(null);
+
+  const scrollToBottom = () => {
+    if (chatMessagesRef.current) {
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isTyping]);
+
+  const challenges = [
+    { emoji: '🎯', label: 'Career Confusion', value: 'career' },
+    { emoji: '💔', label: 'Relationship Issues', value: 'relationship' },
+    { emoji: '📚', label: 'Study Pressure', value: 'studies' },
+    { emoji: '😰', label: 'Anxiety/Stress', value: 'anxiety' },
+    { emoji: '💰', label: 'Money Problems', value: 'money' },
+    { emoji: '🤔', label: 'Life Direction', value: 'direction' }
   ];
 
-  const generatePrediction = () => {
-    if (!name.trim() || !birthYear || !mood) {
-      alert('Please fill in all fields');
-      return;
+  const handleSend = async () => {
+    if (isTyping || currentStep === 'processing') return;
+
+    if (currentStep === 'age') {
+      if (!inputValue.trim() || isNaN(inputValue) || parseInt(inputValue) < 10 || parseInt(inputValue) > 100) return;
+      const userAge = inputValue.trim();
+      setAge(userAge);
+      setInputValue('');
+      setMessages(prev => [...prev, { id: Date.now(), sender: 'user', text: userAge }]);
+      
+      setCurrentStep('challenge');
+      setIsTyping(true);
+      setTimeout(() => {
+        setIsTyping(false);
+        setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'bot', text: 'Got it. What kind of challenge are you facing right now?' }]);
+      }, 1000);
+    } else if (currentStep === 'situation') {
+      if (!inputValue.trim()) return;
+      const userSituation = inputValue.trim();
+      setSituation(userSituation);
+      setInputValue('');
+      setMessages(prev => [...prev, { id: Date.now(), sender: 'user', text: userSituation }]);
+      
+      setCurrentStep('processing');
+      generateAdvice(age, challenge, userSituation);
     }
+  };
 
-    setIsPredicting(true);
-
-    // Simulate AI processing
+  const handleChallengeSelect = (selectedChallenge) => {
+    const challengeObj = challenges.find(c => c.value === selectedChallenge);
+    setChallenge(selectedChallenge);
+    setMessages(prev => [...prev, { id: Date.now(), sender: 'user', text: `${challengeObj.emoji} ${challengeObj.label}` }]);
+    
+    setCurrentStep('situation');
+    setIsTyping(true);
     setTimeout(() => {
- const predictions = {
-  career: [
-    "A major career opportunity will soon appear that could completely change your professional path.",
-    "Your hard work and dedication will finally be noticed by the right people.",
-    "A promotion or exciting new job role is closer than you think.",
-    "Your unique skills will soon be in high demand in your field.",
-    "Success is just around the corner if you keep moving forward.",
-    "A powerful connection or mentor may guide you toward a better career path.",
-    "An unexpected project will showcase your true potential.",
-    "Your creativity and ideas will bring recognition at work.",
-    "A bold career decision will lead to long-term success.",
-    "A new learning opportunity will help you grow faster than before."
-  ],
-
-  money: [
-    "An unexpected financial opportunity may bring extra income into your life.",
-    "Your smart decisions and patience will soon pay off financially.",
-    "A new source of income could appear through creativity or side work.",
-    "Financial stability is approaching as your efforts start showing results.",
-    "Money will begin to flow more naturally when you follow the right path.",
-    "A profitable idea might turn into something bigger than expected.",
-    "Someone may offer a partnership that improves your financial future.",
-    "Your budgeting habits will soon help you save more than before.",
-    "A small investment could grow into a meaningful return.",
-    "Financial growth will come when you trust your instincts."
-  ],
-
-  love: [
-    "Love is slowly entering your life in a beautiful and unexpected way.",
-    "Someone special may soon cross your path and change your perspective on relationships.",
-    "Your current relationship will grow stronger with deeper understanding.",
-    "Romance and emotional connection are getting closer to you.",
-    "Your heart will open to new experiences and meaningful bonds.",
-    "A conversation with someone important could strengthen your relationship.",
-    "A surprising moment will make you realize how valued you truly are.",
-    "Your kindness will attract positive energy in your love life.",
-    "A new friendship might slowly turn into something deeper.",
-    "Emotional balance will bring harmony to your relationships."
-  ],
-
-  health: [
-    "Your body and mind will soon feel stronger and more balanced.",
-    "Energy and motivation will increase as you focus more on your wellbeing.",
-    "Small lifestyle changes will bring big improvements to your health.",
-    "Your fitness goals will start becoming easier to achieve.",
-    "Mental clarity and inner peace are approaching.",
-    "A healthy routine will help you feel refreshed every day.",
-    "Your dedication to self-care will bring positive results.",
-    "You will discover new motivation to stay active and healthy.",
-    "Rest and balance will improve your overall vitality.",
-    "A positive mindset will support both your physical and mental health."
-  ]
-};
-
-      const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Purple', 'Orange', 'Pink', 'Black', 'White', 'Gold'];
-      const numbers = Array.from({ length: 20 }, (_, i) => i + 1);
-
-      const getRandomItem = (array) => array[Math.floor(Math.random() * array.length)];
-
-      const newPrediction = {
-        name: name.trim(),
-        career: getRandomItem(predictions.career),
-        careerStars: Math.floor(Math.random() * 3) + 3, // 3-5 stars
-        money: getRandomItem(predictions.money),
-        moneyStars: Math.floor(Math.random() * 3) + 3,
-        love: getRandomItem(predictions.love),
-        loveStars: Math.floor(Math.random() * 3) + 3,
-        health: getRandomItem(predictions.health),
-        healthStars: Math.floor(Math.random() * 3) + 3,
-        luckyColor: getRandomItem(colors),
-        luckyNumber: getRandomItem(numbers),
-        age: new Date().getFullYear() - parseInt(birthYear),
-        mood: moods.find(m => m.value === mood)?.emoji || mood,
-        timestamp: new Date().toLocaleString()
-      };
-
-      setPrediction(newPrediction);
-      setIsPredicting(false);
-    }, 2000); // 2 second "AI processing" delay
+      setIsTyping(false);
+      setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'bot', text: "Thanks. Could you tell me a little bit more about what's going on?" }]);
+    }, 1000);
   };
 
-  const renderStars = (count) => {
-    return '⭐'.repeat(count) + '☆'.repeat(5 - count);
+  const generateAdvice = async (finalAge, finalChallenge, finalSituation) => {
+    setIsTyping(true);
+    
+    try {
+      const response = await fetch('/api/life-coach', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          situation: finalSituation,
+          age: finalAge,
+          challenge: finalChallenge
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to get advice');
+      }
+
+      setIsTyping(false);
+      
+      const botMessages = [
+        { text: data.advice.acknowledgement },
+        { text: data.advice.perspective },
+        { text: data.advice.actions, isActions: true },
+        { text: data.advice.reflection, isReflection: true },
+        { text: `Your Strength: ${data.advice.strength}` },
+        { text: `Remember: ${data.advice.encouragement}` },
+      ];
+
+      for (let i = 0; i < botMessages.length; i++) {
+        setIsTyping(true);
+        // Randomize delay a bit to feel more real, longer delay for longer texts
+        const delay = Math.max(800, Math.min(2000, botMessages[i].text.length * 15));
+        await new Promise(r => setTimeout(r, delay));
+        setIsTyping(false);
+        setMessages(prev => [...prev, { id: Date.now() + i, sender: 'bot', ...botMessages[i] }]);
+      }
+      
+      setCurrentStep('done');
+    } catch (error) {
+      console.error('Error generating advice:', error);
+      setIsTyping(false);
+      setMessages(prev => [...prev, { id: Date.now(), sender: 'bot', text: 'Sorry, I ran into an issue while thinking. Could you try reloading the page?' }]);
+      setCurrentStep('done');
+    }
   };
 
-  const resetPrediction = () => {
-    setPrediction(null);
-    setName('');
-    setBirthYear('');
-    setMood('');
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSend();
+    }
   };
-  
+
+  const resetChat = () => {
+    setMessages([
+      { id: 1, sender: 'bot', text: 'Hi there! 👋 I am your AI Life Coach.' },
+      { id: 2, sender: 'bot', text: 'I am here to give you practical advice and a fresh perspective.' },
+      { id: 3, sender: 'bot', text: 'To give you the best advice, how old are you?' }
+    ]);
+    setCurrentStep('age');
+    setAge('');
+    setChallenge('');
+    setSituation('');
+    setInputValue('');
+  };
+
+  const renderMessageText = (msg) => {
+    if (msg.isActions && Array.isArray(msg.text)) {
+      return (
+        <div className="bot-actions">
+          <p className="actions-title">Here are some action steps:</p>
+          <ul className="action-list">
+            {msg.text.map((action, idx) => (
+              <li key={idx}><IconComponent icon="mdi:check-circle" /> <span>{action}</span></li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+    if (msg.isReflection) {
+      return (
+        <div className="bot-reflection">
+          <p className="reflection-title">Something to think about:</p>
+          <p className="reflection-text">"{msg.text}"</p>
+        </div>
+      );
+    }
+    return msg.text;
+  };
+
   return (
     <div className="fun">
       {/* Hero Section */}
@@ -130,27 +179,27 @@ export default function Fun() {
           <div className="hero-content">
             <div className="hero-left">
               <div className="hero-badge">
-                <IconComponent icon="mdi:crystal-ball" />
-                <span>Astrology Insights</span>
+                <IconComponent icon="mdi:heart-pulse" />
+                <span>Life Coaching</span>
               </div>
               
               <h1 className="hero-title">
-                <span className="title-gradient">AI Astrology</span>
+                <span className="title-gradient">AI Life Coach</span>
               </h1>
               
               <p className="hero-description">
-                Get your personalized astrology reading with AI. 
-                Discover insights about your career, love, health, and fortune.
+                Get personalized life coaching advice for clarity, confidence, and direction. 
+                Practical guidance designed for Indian youth.
               </p>
               
               <div className="hero-features">
                 <div className="feature-item">
-                  <IconComponent icon="mdi:star" />
-                  <span>AI Technology</span>
+                  <IconComponent icon="mdi:brain" />
+                  <span>Practical Advice</span>
                 </div>
                 <div className="feature-item">
-                  <IconComponent icon="mdi:zodiac-aquarius" />
-                  <span>Astrology Reading</span>
+                  <IconComponent icon="mdi:account-heart" />
+                  <span>Personal Support</span>
                 </div>
                 <div className="feature-item">
                   <IconComponent icon="mdi:shield-check" />
@@ -162,185 +211,110 @@ export default function Fun() {
         </div>
       </section>
 
-      {/* Main Predictor Section */}
+      {/* Main Predictor Section as a Chat UI */}
       <section className="predictor-section">
         <div className="disclaimer">
           <div className="disclaimer-content">
             <IconComponent icon="mdi:information" className="disclaimer-icon" />
             <div className="disclaimer-text">
-              <h3>For Entertainment Only</h3>
+              <h3>Your Personal Growth Journey</h3>
               <p>
-                This AI Astrology feature is for fun and entertainment. 
-                The readings are generated by AI and should not be taken seriously. 
-                Make important life decisions based on real advice, not these results.
+                This AI Life Coach provides practical guidance and perspective. 
+                The advice is meant to support your thinking process - you make your own decisions.
+                For serious issues, please consult qualified professionals.
               </p>
               <div className="disclaimer-note">
                 <IconComponent icon="mdi:heart" />
-                <span>Enjoy the experience!</span>
+                <span>You've got this!</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="ai-future-predictor">
-          <div className="predictor-header">
-            <h2 className="predictor-title">
-              <IconComponent icon="mdi:crystal-ball" className="title-icon" />
-              Get Your Reading
-            </h2>
-            <p className="predictor-subtitle">
-              Enter your details to receive your AI astrology reading
-            </p>
+        <div className="chat-container">
+          <div className="chat-header">
+            <div className="avatar">
+              <IconComponent icon="mdi:robot-outline" />
+            </div>
+            <div className="info">
+              <h2>AI Life Coach</h2>
+              <p>Online &bull; Ready to help</p>
+            </div>
           </div>
 
-          {!prediction ? (
-            <div className="predictor-form">
-              <div className="form-group">
-                <label className="form-label">
-                  <IconComponent icon="mdi:account" />
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  className="form-input"
-                  placeholder="Enter your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  maxLength={50}
-                />
+          <div className="chat-messages" ref={chatMessagesRef}>
+            {messages.map((msg) => (
+              <div key={msg.id} className={`message ${msg.sender}`}>
+                {renderMessageText(msg)}
               </div>
-
-              <div className="form-group">
-                <label className="form-label">
-                  <IconComponent icon="mdi:calendar" />
-                  Birth Year
-                </label>
-                <input
-                  type="number"
-                  className="form-input"
-                  placeholder="e.g., 1995"
-                  value={birthYear}
-                  onChange={(e) => setBirthYear(e.target.value)}
-                  min="1950"
-                  max={new Date().getFullYear() - 13}
-                />
-              </div>
-
-              <div className="form-group">
-                <label className="form-label">
-                  <IconComponent icon="mdi:emoticon" />
-                  Current Mood
-                </label>
-                <div className="mood-selector">
-                  {moods.map((moodOption) => (
-                    <button
-                      key={moodOption.value}
-                      className={`mood-btn ${mood === moodOption.value ? 'active' : ''}`}
-                      onClick={() => setMood(moodOption.value)}
-                      type="button"
-                    >
-                      <span className="mood-emoji">{moodOption.emoji}</span>
-                      <span className="mood-label">{moodOption.label}</span>
+            ))}
+            
+            {currentStep === 'challenge' && !isTyping && (
+              <div className="challenge-options-container">
+                <div className="challenge-options">
+                  {challenges.map((c) => (
+                    <button key={c.value} onClick={() => handleChallengeSelect(c.value)}>
+                      {c.emoji} {c.label}
                     </button>
                   ))}
                 </div>
               </div>
+            )}
 
-              <Button
-                variant="primary"
-                onClick={generatePrediction}
-                disabled={isPredicting}
-                className="predict-btn"
-              >
-                {isPredicting ? (
-                  <>
-                    <IconComponent icon="mdi:loading" className="spin-icon" />
-                    AI is generating...
-                  </>
+            {isTyping && (
+              <div className="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            )}
+          </div>
+
+          {currentStep !== 'challenge' && currentStep !== 'done' && (
+            <div className="chat-input-area">
+              <div className="input-wrapper">
+                {currentStep === 'age' ? (
+                  <input
+                    type="number"
+                    placeholder="Enter your age..."
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    disabled={isTyping}
+                    min="15"
+                    max="100"
+                  />
                 ) : (
-                  <>
-                    <IconComponent icon="mdi:crystal-ball" />
-                    Get My Reading
-                  </>
+                  <textarea
+                    placeholder="Type your situation..."
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        handleSend();
+                      }
+                    }}
+                    disabled={isTyping || currentStep === 'processing'}
+                    rows={2}
+                  />
                 )}
-              </Button>
+                <button 
+                  onClick={handleSend} 
+                  disabled={!inputValue.trim() || isTyping || currentStep === 'processing'}
+                >
+                  <IconComponent icon="mdi:send" />
+                </button>
+              </div>
             </div>
-          ) : (
-            <div className="prediction-result">
-              <div className="result-header">
-                <h2 className="result-title">
-                  <IconComponent icon="mdi:star" className="star-icon" />
-                  Your Astrology Reading
-                </h2>
-                <p className="result-subtitle">
-                  {prediction.name}, age {prediction.age} • {prediction.mood} • {prediction.timestamp}
-                </p>
-              </div>
+          )}
 
-              <div className="prediction-cards">
-                <div className="prediction-card career">
-                  <div className="card-header">
-                    <IconComponent icon="mdi:briefcase" className="card-icon" />
-                    <h3>Career</h3>
-                    <div className="stars">{renderStars(prediction.careerStars)}</div>
-                  </div>
-                  <p className="card-text">{prediction.career}</p>
-                </div>
-
-                <div className="prediction-card money">
-                  <div className="card-header">
-                    <IconComponent icon="mdi:cash" className="card-icon" />
-                    <h3>Money</h3>
-                    <div className="stars">{renderStars(prediction.moneyStars)}</div>
-                  </div>
-                  <p className="card-text">{prediction.money}</p>
-                </div>
-
-                <div className="prediction-card love">
-                  <div className="card-header">
-                    <IconComponent icon="mdi:heart" className="card-icon" />
-                    <h3>Love</h3>
-                    <div className="stars">{renderStars(prediction.loveStars)}</div>
-                  </div>
-                  <p className="card-text">{prediction.love}</p>
-                </div>
-
-                <div className="prediction-card health">
-                  <div className="card-header">
-                    <IconComponent icon="mdi:heart-pulse" className="card-icon" />
-                    <h3>Health</h3>
-                    <div className="stars">{renderStars(prediction.healthStars)}</div>
-                  </div>
-                  <p className="card-text">{prediction.health}</p>
-                </div>
-              </div>
-
-              <div className="lucky-items">
-                <div className="lucky-item">
-                  <IconComponent icon="mdi:palette" className="lucky-icon" />
-                  <div className="lucky-content">
-                    <h4>Lucky Color</h4>
-                    <div className="color-display" style={{ backgroundColor: prediction.luckyColor.toLowerCase() }}>
-                      {prediction.luckyColor}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="lucky-item">
-                  <IconComponent icon="mdi:numeric" className="lucky-icon" />
-                  <div className="lucky-content">
-                    <h4>Lucky Number</h4>
-                    <div className="number-display">{prediction.luckyNumber}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="result-actions">
-                <Button variant="primary" onClick={resetPrediction} className="new-prediction-btn">
-                  <IconComponent icon="mdi:refresh" />
-                  Get New Reading
-                </Button>
-              </div>
+          {currentStep === 'done' && (
+            <div className="chat-input-area reset-area">
+              <Button variant="primary" onClick={resetChat} className="reset-btn">
+                <IconComponent icon="mdi:refresh" />
+                Start a New Session
+              </Button>
             </div>
           )}
         </div>

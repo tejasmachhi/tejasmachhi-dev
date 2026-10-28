@@ -1,3 +1,7 @@
+// PrimeReact CSS imports (lighter version)
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+
 // Global variables
 $primary: #111;
 $accent: #4f46e5;
@@ -6,6 +10,59 @@ $bg: #f9f9f9;
 $white: #ffffff;
 $gray: #6b7280;
 $light-gray: #f3f4f6;
+
+// Reusable SCSS Design Tokens
+$border-radius: 8px;
+$border-radius-sm: 6px;
+$border-color: rgba(0, 0, 0, 0.08);
+$border-color-subtle: rgba(0, 0, 0, 0.04);
+$card-bg: #ffffff;
+$section-spacing: 80px;
+$container-width: 1400px;
+$card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+
+// CSS Custom Properties for Light (default) & Dark Modes
+:root, [data-theme="light"] {
+  --primary: #0f172a;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --text: #334155;
+  --text-muted: #64748b;
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --gray: #64748b;
+  --light-gray: #f1f5f9;
+
+  --border-radius: 8px;
+  --border-radius-sm: 6px;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-color-subtle: rgba(0, 0, 0, 0.04);
+  --card-bg: #ffffff;
+  --section-spacing: 80px;
+  --container-width: 1400px;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] {
+  --primary: #f8fafc;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --text: #cbd5e1;
+  --text-muted: #94a3b8;
+  --bg: #0b0f19;
+  --white: #131b2e;
+  --gray: #94a3b8;
+  --light-gray: #1e293b;
+
+  --border-radius: 8px;
+  --border-radius-sm: 6px;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-subtle: rgba(255, 255, 255, 0.04);
+  --card-bg: #131b2e;
+  --section-spacing: 80px;
+  --container-width: 1400px;
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
 
 // Global styles
 * {
@@ -21,13 +78,28 @@ html {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
-  color: $text;
-  background-color: $bg;
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
-  max-width: calc(100% - 80px);
+  width: calc(100% - 64px);
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0;
+
+  @media (max-width: 1024px) {
+    width: calc(100% - 48px);
+  }
+
+  @media (max-width: 768px) {
+    width: calc(100% - 32px);
+  }
+
+  @media (max-width: 480px) {
+    width: calc(100% - 24px);
+  }
 }
 
 // Utility classes
@@ -76,7 +148,255 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: $bg;
+  padding: 70px 20px;
 
+  .skeleton-loader {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  // Header Skeleton
+  .skeleton-header {
+    text-align: center;
+    margin-bottom: 50px;
+
+    .skeleton-badge {
+      width: 120px;
+      height: 30px;
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+      background-size: 400% 100%;
+      animation: shimmer 1.4s ease-in-out infinite;
+      border-radius: 20px;
+      margin: 0 auto 10px;
+    }
+
+    .skeleton-title {
+      width: 300px;
+      height: 40px;
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+      background-size: 400% 100%;
+      animation: shimmer 1.4s ease-in-out infinite;
+      border-radius: 8px;
+      margin: 0 auto 10px;
+    }
+
+    .skeleton-subtitle {
+      width: 500px;
+      height: 20px;
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+      background-size: 400% 100%;
+      animation: shimmer 1.4s ease-in-out infinite;
+      border-radius: 4px;
+      margin: 0 auto;
+    }
+  }
+
+  // Skeleton Grid
+  .skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  // Skeleton Card
+  .skeleton-card {
+    background: $white;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #eee;
+
+    .skeleton-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+
+      .skeleton-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+        background-size: 400% 100%;
+        animation: shimmer 1.4s ease-in-out infinite;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+
+      .skeleton-company-info {
+        flex: 1;
+
+        .skeleton-company-name {
+          width: 180px;
+          height: 20px;
+          background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+          background-size: 400% 100%;
+          animation: shimmer 1.4s ease-in-out infinite;
+          border-radius: 4px;
+          margin-bottom: 6px;
+        }
+
+        .skeleton-position {
+          width: 120px;
+          height: 16px;
+          background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+          background-size: 400% 100%;
+          animation: shimmer 1.4s ease-in-out infinite;
+          border-radius: 12px;
+        }
+      }
+    }
+
+    .skeleton-meta {
+      display: flex;
+      gap: 14px;
+      margin: 10px 0 14px;
+
+      .skeleton-meta-item {
+        width: 80px;
+        height: 16px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+        background-size: 400% 100%;
+        animation: shimmer 1.4s ease-in-out infinite;
+        border-radius: 4px;
+      }
+    }
+
+    .skeleton-content {
+      margin-bottom: 14px;
+
+      .skeleton-line {
+        height: 16px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+        background-size: 400% 100%;
+        animation: shimmer 1.4s ease-in-out infinite;
+        border-radius: 4px;
+        margin-bottom: 8px;
+
+        &.short {
+          width: 60%;
+        }
+      }
+    }
+
+    .skeleton-tech {
+      .skeleton-tech-label {
+        width: 80px;
+        height: 12px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+        background-size: 400% 100%;
+        animation: shimmer 1.4s ease-in-out infinite;
+        border-radius: 4px;
+        margin-bottom: 6px;
+      }
+
+      .skeleton-tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        .skeleton-tag {
+          width: 60px;
+          height: 20px;
+          background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+          background-size: 400% 100%;
+          animation: shimmer 1.4s ease-in-out infinite;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+
+  // About Page Specific Skeleton
+  .skeleton-about-content {
+    .skeleton-about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 60px;
+      align-items: start;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .skeleton-about-left {
+      .skeleton-card {
+        background: $white;
+        padding: 32px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        margin-bottom: 24px;
+
+        .skeleton-section-title {
+          width: 150px;
+          height: 28px;
+          background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+          background-size: 400% 100%;
+          animation: shimmer 1.4s ease-in-out infinite;
+          border-radius: 6px;
+          margin-bottom: 16px;
+        }
+
+        .skeleton-line {
+          height: 16px;
+          background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+          background-size: 400% 100%;
+          animation: shimmer 1.4s ease-in-out infinite;
+          border-radius: 4px;
+          margin-bottom: 12px;
+
+          &.long {
+            width: 100%;
+          }
+
+          &.short {
+            width: 60%;
+          }
+        }
+      }
+    }
+
+    .skeleton-about-right {
+      .skeleton-card {
+        background: $white;
+        padding: 32px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+        .skeleton-section-title {
+          width: 120px;
+          height: 24px;
+          background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+          background-size: 400% 100%;
+          animation: shimmer 1.4s ease-in-out infinite;
+          border-radius: 6px;
+          margin-bottom: 20px;
+        }
+
+        .skeleton-skills {
+          .skeleton-skill-item {
+            margin-bottom: 16px;
+
+            .skeleton-skill-bar {
+              height: 8px;
+              background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+              background-size: 400% 100%;
+              animation: shimmer 1.4s ease-in-out infinite;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Legacy loader (fallback)
   .loader {
     text-align: center;
 
@@ -138,14 +458,264 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-// Responsive
-@media (max-width: 768px) {
-  .container {
-    padding: 0 16px;
+@keyframes shimmer {
+  0% {
+    background-position: -400% 0;
   }
+  100% {
+    background-position: 400% 0;
+  }
+}
 
+// Responsive utilities
+@media (max-width: 768px) {
   .btn-primary, .btn-secondary {
     padding: 10px 20px;
     font-size: 14px;
+  }
+}
+
+// Global Dark Mode Theme Overrides
+[data-theme="dark"] {
+  // Hero section dark theme
+  .hero-section {
+    background: transparent;
+
+    .title-name {
+      color: #f8fafc !important;
+    }
+
+    .hero-description {
+      color: #94a3b8 !important;
+    }
+
+    .stat-item {
+      background: #131b2e !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+
+      .stat-number {
+        color: #f8fafc !important;
+      }
+
+      .stat-label {
+        color: #94a3b8 !important;
+      }
+    }
+  }
+
+  // About section dark theme
+  .about {
+    background: #0f172a !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+
+    .section-title {
+      color: #f8fafc !important;
+    }
+
+    .section-subtitle {
+      color: #94a3b8 !important;
+    }
+
+    .about-card {
+      background: #131b2e !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+
+      .about-title {
+        color: #f8fafc !important;
+      }
+
+      .about-text {
+        color: #94a3b8 !important;
+      }
+    }
+  }
+
+  // Experience section dark theme
+  .experience {
+    background: #0b0f19 !important;
+
+    .section-title {
+      color: #f8fafc !important;
+    }
+
+    .section-subtitle {
+      color: #94a3b8 !important;
+    }
+
+    .timeline-node .node-icon {
+      background: #131b2e !important;
+      border-color: rgba(99, 102, 241, 0.4) !important;
+      color: #818cf8 !important;
+    }
+
+    .timeline-node .node-line {
+      background: linear-gradient(180deg, #4f46e5 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    }
+
+    .timeline-card {
+      background: #131b2e !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3) !important;
+
+      .company-name {
+        color: #f8fafc !important;
+      }
+
+      .position-badge {
+        background: rgba(99, 102, 241, 0.18) !important;
+        color: #a5b4fc !important;
+        border-color: rgba(99, 102, 241, 0.3) !important;
+      }
+
+      .location-badge {
+        color: #94a3b8 !important;
+      }
+
+      .timeline-desc {
+        color: #94a3b8 !important;
+      }
+
+      .responsibility-item {
+        color: #cbd5e1 !important;
+      }
+
+      .tech-tag {
+        background: rgba(255, 255, 255, 0.06) !important;
+        color: #cbd5e1 !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .project-highlight-box {
+        background: rgba(11, 15, 25, 0.6) !important;
+        border-color: rgba(255, 255, 255, 0.08) !important;
+
+        .box-title {
+          color: #f8fafc !important;
+        }
+
+        .highlight-item {
+          color: #94a3b8 !important;
+        }
+      }
+    }
+  }
+
+  // Projects section dark theme
+  .projects {
+    background: #0f172a !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+
+    .section-title {
+      color: #f8fafc !important;
+    }
+
+    .section-subtitle {
+      color: #94a3b8 !important;
+    }
+  }
+
+  .project-card {
+    background: #131b2e !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3) !important;
+
+    .project-image {
+      background-color: #0b0f19 !important;
+    }
+
+    .project-content {
+      .project-title {
+        color: #f8fafc !important;
+      }
+
+      .project-description {
+        color: #94a3b8 !important;
+      }
+
+      .tag {
+        background: rgba(255, 255, 255, 0.06) !important;
+        color: #cbd5e1 !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .action-btn {
+        background: rgba(255, 255, 255, 0.06) !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+        color: #cbd5e1 !important;
+
+        &:hover {
+          background: rgba(99, 102, 241, 0.25) !important;
+          border-color: #818cf8 !important;
+          color: #ffffff !important;
+        }
+
+        &.live-btn {
+          background: #4f46e5 !important;
+          color: #ffffff !important;
+          border-color: #4f46e5 !important;
+
+          &:hover {
+            background: #4338ca !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Contact section dark theme
+  .contact {
+    background: #0b0f19 !important;
+
+    .section-title {
+      color: #f8fafc !important;
+    }
+
+    .section-subtitle {
+      color: #94a3b8 !important;
+    }
+
+    .contact-card,
+    .contact-form {
+      background: #131b2e !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3) !important;
+
+      h3, h4 {
+        color: #f8fafc !important;
+      }
+
+      p {
+        color: #94a3b8 !important;
+      }
+
+      input,
+      textarea {
+        background: #0b0f19 !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+        color: #f8fafc !important;
+
+        &:focus {
+          border-color: #818cf8 !important;
+        }
+      }
+    }
+  }
+
+  // Footer dark theme
+  .footer {
+    background: #070a12 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+
+    .footer-desc,
+    .footer-link,
+    .copyright {
+      color: #94a3b8 !important;
+    }
+
+    .footer-link:hover {
+      color: #818cf8 !important;
+    }
   }
 }

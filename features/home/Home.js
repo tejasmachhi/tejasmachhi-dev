@@ -19,39 +19,68 @@ export default function Home() {
      DATA ARRAYS
   =============================== */
   const roles = [
-    "Frontend Developer",
+    "Frontend UI Developer",
     "UI/UX Developer",
-    "Web Developer",
-    "Part-Time Game Streamer (YouTube)"
+    "React.js Developer",
+    "Web UI Developer"
   ];
-  const roleColors = ["#9238faff", "#fa7901ff", "#14b8a6", "#f1120eff"];
+  const roleColors = ["#9238faff", "#fa7901ff", "#14b8a6", "#3b82f6"];
 
 
   const statsData = [
     {
-      icon: "mdi:briefcase",
+      renderIcon: () => (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </svg>
+      ),
       target: 10,
       suffix: "+",
       label: "Projects Completed",
+      variant: "purple",
+      barColor: "#6366f1",
     },
     {
-      icon: "mdi:clock-time-eight",
+      renderIcon: () => (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="8" r="6" />
+          <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+        </svg>
+      ),
       target: 1,
       suffix: "+",
       label: "Years Experience",
+      variant: "blue",
+      barColor: "#2563eb",
     },
     {
-      icon: "mdi:code-tags",
-      target: 5,
+      renderIcon: () => (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+      ),
+      target: 12,
       suffix: "+",
-      label: "Technologies",
+      label: "Technologies & Tools",
+      variant: "emerald",
+      barColor: "#059669",
     },
     {
-      icon: "mdi:code-tags",
-      target: 20000,
-      suffix: "+",
-
-      label: "line of code written",
+      renderIcon: () => (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+        </svg>
+      ),
+      target: 20,
+      suffix: "k+",
+      label: "Lines of Code Written",
+      variant: "orange",
+      barColor: "#ea580c",
     },
   ];
 
@@ -125,6 +154,13 @@ export default function Home() {
 
   const projectsData = [
     {
+      title: "Unnati Enterprise",
+      description:
+        "Certified safety equipment & industrial PPE supplier website built with Next.js and SCSS.",
+      image: "/assets/img/Unnati-Enterprise.png",
+      tags: ["Next.js", "React", "SCSS"],
+    },
+    {
       title: "Modern E-Commerce Website",
       description:
         "Responsive online store built with Next.js and modern UI principles.",
@@ -180,7 +216,7 @@ export default function Home() {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.5,
+      threshold: 0.1,
     };
 
     const observerCallback = (entries, observer) => {
@@ -291,7 +327,7 @@ export default function Home() {
               </h1>
 
               <p className="hero-description">
-                Passionate Self-Taught Frontend Developer crafting modern, responsive, and user-focused web experiences. I turn ideas into clean, scalable, and visually engaging digital products.
+                Frontend UI Developer & UI/UX Specialist crafting modern, responsive, and user-centered web applications. Practical experience turning Figma designs into scalable React.js, Next.js, and PrimeReact interfaces with clean, modular SCSS.
               </p>
 
               <div className="hero-buttons">
@@ -301,6 +337,14 @@ export default function Home() {
                   icon="mdi:arrow-right"
                 >
                   View My Work
+                </Button>
+
+                <Button
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-resume-modal'))}
+                  variant="outline"
+                  icon="mdi:file-document-outline"
+                >
+                  View Resume
                 </Button>
 
                 <Button
@@ -329,24 +373,24 @@ export default function Home() {
           {/* ================= STATS ================= */}
           <div className="hero-stats" ref={statsRef}>
             {statsData.map((stat, index) => (
-              <div className="stat-item" key={index}>
-
+              <div className={`stat-item stat-${stat.variant}`} key={index}>
                 <div className="stat-icon">
-                  <IconComponent icon={stat.icon} />
+                  {stat.renderIcon ? stat.renderIcon() : <IconComponent icon={stat.icon} />}
                 </div>
-
-                <div
-                  className="stat-number"
-                  data-target={stat.target}
-                  data-suffix={stat.suffix}
-                >
-                  0
+                <div className="stat-info">
+                  <div
+                    className="stat-number"
+                    data-target={stat.target}
+                    data-suffix={stat.suffix}
+                  >
+                    {stat.target}{stat.suffix}
+                  </div>
+                  <div className="stat-label">{stat.label}</div>
+                  <div
+                    className="stat-bar"
+                    style={{ backgroundColor: stat.barColor }}
+                  />
                 </div>
-
-                <div className="stat-label">
-                  {stat.label}
-                </div>
-
               </div>
             ))}
           </div>

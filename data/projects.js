@@ -1,6 +1,25 @@
 export const projects = [
   {
     id: 1,
+    title: "Unnati Enterprise",
+    slug: "unnati-enterprise",
+    description: "Industrial safety equipment & PPE supplier platform built with Next.js & SCSS, featuring responsive catalogs and quotation inquiry workflows.",
+    tech: ["Next.js", "React", "SCSS", "JavaScript", "Responsive Design"],
+    image: "/assets/img/Unnati-Enterprise.png",
+    liveLink: "https://unnati-enterprise-website.vercel.app",
+    githubLink: "https://github.com/tejasmachhi/unnati-enterprise-website",
+    overview: "Unnati Enterprise is Gujarat's trusted partner for high-performance industrial safety equipment and certified PPE supplies. The web platform provides comprehensive catalogs for ISI & CE certified personal protective equipment, fire safety systems, and road safety solutions designed for factories, construction sites, and warehouses with intuitive quote request and consultation flows.",
+    features: [
+      "Interactive product showcase for ISI & CE certified safety equipment and PPE",
+      "Direct expert quotation request and consultation inquiry workflows",
+      "Modern, mobile-responsive user interface built with Next.js and SCSS",
+      "Fast page load speeds and optimized visual assets",
+      "Cross-device and cross-browser responsive layout"
+    ],
+    developmentProcess: "Designed and developed using Next.js with modular SCSS styling. Focused on clean industrial branding, clear call-to-actions, accessible product categorization, and seamless mobile responsiveness for B2B industrial clients."
+  },
+  {
+    id: 2,
     title: "Omega",
     slug: "omega",
     description: "Responsive Web Design with modern UI/UX principles and clean aesthetics",
@@ -10,7 +29,7 @@ export const projects = [
     githubLink: "https://github.com/tejasmachhi/omega"
   },
   {
-    id: 2,
+    id: 3,
     title: "Lorem 5-Page",
     slug: "lorem-5-page",
     description: "Multi-page responsive website built with Bootstrap framework and jQuery",
@@ -20,7 +39,7 @@ export const projects = [
     githubLink: "https://github.com/tejasmachhi/lorem-5-page"
   },
   {
-    id: 3,
+    id: 4,
     title: "Rocket Media",
     slug: "rocket-media",
     description: "Modern business website with interactive animations and dynamic content",
@@ -30,7 +49,7 @@ export const projects = [
     githubLink: "https://github.com/tejasmachhi/rocket-media"
   },
   {
-    id: 4,
+    id: 5,
     title: "Hupp Tech",
     slug: "hupp-tech",
     description: "Technology company landing page with modern design and user experience",
@@ -40,7 +59,7 @@ export const projects = [
     githubLink: "https://github.com/tejasmachhi/hupp-tech"
   },
   {
-    id: 5,
+    id: 6,
     title: "Blue Berry",
     slug: "blue-berry",
     description: "E-commerce website with responsive design and modern shopping experience",
@@ -50,7 +69,7 @@ export const projects = [
     githubLink: "https://github.com/tejasmachhi/blue-berry"
   },
   {
-    id: 6,
+    id: 7,
     title: "AI Tool Directory",
     slug: "ai-tool-directory",
     description: "AI-generated web page showcasing various AI tools and technologies",

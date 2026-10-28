@@ -40,9 +40,14 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-light 100%);
   }
 
   .container {
-    max-width: 1200px;
+    width: calc(100% - 64px);
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      width: calc(100% - 32px);
+    }
 
     .footer-content {
       display: grid;
@@ -61,48 +66,13 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-light 100%);
             gap: 0.75rem;
           }
 
-          .logo-icon {
-            width: 2rem;
-            height: 2rem;
-            background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.875rem;
+          .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
 
             @media (min-width: 640px) {
-              width: 2.5rem;
-              height: 2.5rem;
-              border-radius: 0.75rem;
-              font-size: 1.125rem;
-            }
-          }
-
-          .logo-name {
-            font-size: 1.125rem;
-            font-weight: bold;
-            background: linear-gradient(to right, white, #d1d5db);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            @media (min-width: 640px) {
-              font-size: 1.25rem;
-            }
-          }
-
-          .logo-subtitle {
-            font-size: 0.75rem;
-            color: var(--primary-light);
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            display: none;
-
-            @media (min-width: 640px) {
-              display: block;
+              height: 50px;
             }
           }
         }

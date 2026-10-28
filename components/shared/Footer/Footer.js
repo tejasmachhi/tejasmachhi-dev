@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import IconComponent from '@/components/IconComponent';
 import './Footer.scss';
 
@@ -13,13 +14,13 @@ export default function Footer() {
         <div className="footer-content">
           <div className="footer-info">
             <div className="logo">
-              <div className="logo-icon">
-                <span>&lt;/&gt;</span>
-              </div>
-              <div className="logo-text">
-                <div className="logo-name">TEJAS MACHHI</div>
-                <div className="logo-subtitle">FRONTEND DEVELOPER</div>
-              </div>
+              <Image
+                src="/assets/img/logo.png"
+                alt="Tejas Machhi Logo"
+                width={180}
+                height={50}
+                className="logo-img"
+              />
             </div>
             <p>
               I'm a passionate self-taught frontend developer who loves creating beautiful,
@@ -54,7 +55,7 @@ export default function Footer() {
               <a href="https://wa.me/91635333122" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="WhatsApp">
                 <IconComponent icon="mdi:whatsapp" />
               </a>
-              <a href="mailto:tejasmachhi@example.com" className="social-link" aria-label="Email">
+              <a href="mailto:tejasmachhi2710@gmail.com" className="social-link" aria-label="Email">
                 <IconComponent icon="mdi:email" />
               </a>
             </div>

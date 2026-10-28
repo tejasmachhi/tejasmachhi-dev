@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import IconComponent from '@/components/IconComponent';
 import { getProjectBySlug } from '@/data/projects';
 import Button from '@/components/ui/Button/Button';
 import './ProjectDetail.scss';
@@ -110,30 +109,38 @@ export default function ProjectDetail({ slug }) {
           <div className="details-section">
             <h2>Project Overview</h2>
             <p>
-              This project showcases my skills in modern web development, focusing on creating 
+              {project.overview || `This project showcases my skills in modern web development, focusing on creating 
               responsive, user-friendly interfaces with clean code and best practices. The implementation 
               demonstrates my ability to work with various technologies and frameworks to deliver 
-              high-quality web applications.
+              high-quality web applications.`}
             </p>
           </div>
 
           <div className="details-section">
             <h2>Key Features</h2>
             <ul>
-              <li>Responsive design that works seamlessly across all devices</li>
-              <li>Modern UI/UX with smooth animations and transitions</li>
-              <li>Clean, maintainable code following industry best practices</li>
-              <li>Optimized performance and fast loading times</li>
-              <li>Cross-browser compatibility</li>
+              {project.features ? (
+                project.features.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))
+              ) : (
+                <>
+                  <li>Responsive design that works seamlessly across all devices</li>
+                  <li>Modern UI/UX with smooth animations and transitions</li>
+                  <li>Clean, maintainable code following industry best practices</li>
+                  <li>Optimized performance and fast loading times</li>
+                  <li>Cross-browser compatibility</li>
+                </>
+              )}
             </ul>
           </div>
 
           <div className="details-section">
             <h2>Development Process</h2>
             <p>
-              The development process involved careful planning, design implementation, and rigorous testing. 
+              {project.developmentProcess || `The development process involved careful planning, design implementation, and rigorous testing. 
               I focused on creating a scalable solution that not only meets the current requirements but also 
-              allows for future enhancements and maintenance.
+              allows for future enhancements and maintenance.`}
             </p>
           </div>
         </div>

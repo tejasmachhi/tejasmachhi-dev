@@ -8,8 +8,15 @@ $white: #ffffff;
 $gray: #6b7280;
 $light-gray: #f3f4f6;
 
+$border-radius: 8px;
+$border-radius-sm: 6px;
+$border-color: rgba(0, 0, 0, 0.08);
+$card-bg: #ffffff;
+$section-spacing: 80px;
+$card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+
 .services {
-  padding: 100px 0;
+  padding: $section-spacing 0;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   position: relative;
   overflow: hidden;
@@ -40,7 +47,7 @@ $light-gray: #f3f4f6;
 
   .section-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     position: relative;
     z-index: 1;
 
@@ -73,21 +80,21 @@ $light-gray: #f3f4f6;
   }
 
   .service-card {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba($accent, 0.15);
-    padding: 40px 28px;
-    border-radius: 16px;
+    background: $card-bg;
+    border: 1px solid $border-color;
+    padding: 32px 24px;
+    border-radius: $border-radius;
     text-align: center;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     position: relative;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: $card-shadow;
     
     &::before {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 16px;
+      border-radius: $border-radius;
       padding: 1px;
       background: linear-gradient(135deg, transparent, rgba($accent, 0.25), transparent);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

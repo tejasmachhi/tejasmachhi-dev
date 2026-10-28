@@ -17,6 +17,7 @@ export const ImgAssets = {
   AI_TOOLS_ICON: AppIcons.AiToolsIcon,
   
   // Project Images
+  UNNATI_ENTERPRISE_PROJECT: AppIcons.UnnatiEnterpriseProject,
   BLUE_BERRY_PROJECT: AppIcons.BlueBerryProject,
   OMEGA_PROJECT: AppIcons.OmegaProject,
   HUPP_TECH_PROJECT: AppIcons.HuppTechProject,

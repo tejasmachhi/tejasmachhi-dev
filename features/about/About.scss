@@ -1,96 +1,204 @@
 // Variables
-$primary: #111;
-$accent: #4f46e5;
-$text: #333;
-$bg: #f9f9f9;
-$white: #ffffff;
-$gray: #6b7280;
-$light-gray: #f3f4f6;
+$primary: #111827;
+$accent: #6366f1;
+$text: #374151;
+$text-muted: #6b7280;
+$card-bg: #ffffff;
+$border-color: rgba(226, 232, 240, 0.95);
+$border-hover: rgba(99, 102, 241, 0.4);
 
 .about {
-  padding: 120px 0 80px;
-  background: linear-gradient(135deg, $bg 0%, $white 100%);
+  padding: 36px 0 32px;
+  background: #f8fafc;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 
   .container {
-    max-width: 1200px;
+    width: calc(100% - 64px);
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-
-      .section-title {
-        font-size: 42px;
-        font-weight: 700;
-        color: $primary;
-        margin-bottom: 16px;
-      }
-
-      .section-subtitle {
-        font-size: 18px;
-        color: $gray;
-        max-width: 600px;
-        margin: 0 auto;
-      }
+    @media (max-width: 1024px) {
+      width: calc(100% - 48px);
     }
 
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
+    @media (max-width: 768px) {
+      width: calc(100% - 32px);
+    }
 
-      .about-text {
-        .about-card {
-          background-color: $white;
-          padding: 32px;
-          border-radius: 16px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-          margin-bottom: 24px;
-          transition: transform 0.3s ease;
+    @media (max-width: 480px) {
+      width: calc(100% - 24px);
+    }
+  }
 
-          &:hover {
-            transform: translateY(-4px);
-          }
+  // Centered Header
+  .section-header {
+    text-align: center;
+    margin-bottom: 24px;
 
-          h3 {
-            color: $accent;
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 16px;
-          }
+    .about-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #4f46e5;
+      background: rgba(79, 70, 229, 0.08);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
 
-          p {
-            color: $gray;
-            line-height: 1.6;
-            font-size: 16px;
-          }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: $primary;
+      margin: 0 0 4px;
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      font-size: 14.5px;
+      color: $text-muted;
+      margin: 0 auto;
+      max-width: 540px;
+      line-height: 1.5;
+    }
+  }
+
+  // 4-Card Grid: Same height for all cards, 1st card for image
+  .about-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: stretch;
+
+    .about-card {
+      background: $card-bg;
+      border: 1px solid $border-color;
+      border-radius: 14px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      // Clean transition, NO over-hover motion or transform
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        border-color: $border-hover;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .card-heading {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+          color: $accent;
+          flex-shrink: 0;
+        }
+
+        h3 {
+          font-size: 16px;
+          font-weight: 600;
+          color: $primary;
+          margin: 0;
         }
       }
 
-      .about-image {
-        .about-img-container {
+      p {
+        font-size: 13.5px;
+        line-height: 1.62;
+        color: $text;
+        margin: 0;
+        flex-grow: 1;
+      }
+
+      // Card 1: Image Card with exact same height
+      &.about-img-card {
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid $border-color;
+
+        .img-wrapper {
           position: relative;
-          border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+          width: 100%;
+          height: 100%;
+          min-height: 290px;
 
-          .about-img {
-            width: 100%;
-            height: auto;
+          .about-photo-img {
             object-fit: cover;
-            border-radius: 20px;
-          }
-
-          .about-img-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+            object-position: center 25%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
-            border-radius: 20px;
+            display: block;
+            transition: transform 0.4s ease;
+          }
+
+          &:hover .about-photo-img {
+            transform: scale(1.02);
+          }
+
+          .img-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 24px 18px 18px;
+            background: linear-gradient(
+              to top,
+              rgba(15, 23, 42, 0.92) 0%,
+              rgba(15, 23, 42, 0.55) 55%,
+              transparent 100%
+            );
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+
+            .status-pill {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              font-size: 11px;
+              font-weight: 500;
+              color: #34d399;
+              background: rgba(5, 150, 105, 0.22);
+              padding: 2px 8px;
+              border-radius: 12px;
+              width: fit-content;
+              margin-bottom: 2px;
+              backdrop-filter: blur(4px);
+
+              .status-dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #34d399;
+                display: inline-block;
+              }
+            }
+
+            .img-card-name {
+              color: #ffffff;
+              font-size: 17px;
+              font-weight: 700;
+              margin: 0;
+              line-height: 1.2;
+            }
+
+            .img-card-title {
+              color: rgba(255, 255, 255, 0.85);
+              font-size: 12px;
+              margin: 0;
+              line-height: 1.3;
+            }
           }
         }
       }
@@ -98,56 +206,40 @@ $light-gray: #f3f4f6;
   }
 }
 
-// Mobile responsive
-@media (max-width: 768px) {
+// Responsive
+@media (max-width: 1024px) {
   .about {
-    padding: 10px 0 60px;
+    padding: 48px 0 40px;
 
-    .container {
-      padding: 0 16px;
+    .about-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
 
-      .section-header {
-        margin-bottom: 40px;
-
-        .section-title {
-          font-size: 32px;
-        }
-
-        .section-subtitle {
-          font-size: 16px;
-        }
+      .about-card.about-img-card .img-wrapper {
+        min-height: 270px;
       }
+    }
+  }
+}
 
-      .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
+@media (max-width: 640px) {
+  .about {
+    padding: 40px 0 32px;
 
-        .about-text {
-          .about-card {
-            padding: 24px;
-            margin-bottom: 20px;
+    .section-header {
+      margin-bottom: 26px;
 
-            h3 {
-              font-size: 20px;
-            }
+      .section-title {
+        font-size: 26px;
+      }
+    }
 
-            p {
-              font-size: 15px;
-            }
-          }
-        }
+    .about-cards-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
 
-        .about-image {
-          .about-img-container {
-            .about-img {
-              border-radius: 16px;
-            }
-
-            .about-img-overlay {
-              border-radius: 16px;
-            }
-          }
-        }
+      .about-card.about-img-card .img-wrapper {
+        min-height: 260px;
       }
     }
   }

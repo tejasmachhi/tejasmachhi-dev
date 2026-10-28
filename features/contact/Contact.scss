@@ -9,9 +9,15 @@ $bg: #f8fafc;
 $white: #ffffff;
 $gray: #6b7280;
 $light-gray: #f1f5f9;
-$border: #e2e8f0;
+$border: rgba(0, 0, 0, 0.08);
 $success: #10b981;
 $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
+$border-radius: 8px;
+$border-radius-sm: 6px;
+$border-color: rgba(0, 0, 0, 0.08);
+$card-bg: #ffffff;
+$section-spacing: 80px;
+$card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 
 .contact {
   background: $bg;
@@ -24,7 +30,7 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
+    background-image:
       radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.05) 0%, transparent 50%),
       radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
       radial-gradient(circle at 40% 40%, rgba(55, 48, 163, 0.03) 0%, transparent 50%);
@@ -35,10 +41,10 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
   .contact-hero {
     position: relative;
     padding: 140px 0 100px;
-    background: linear-gradient(135deg, 
-      rgba(79, 70, 229, 0.02) 0%, 
-      rgba(99, 102, 241, 0.03) 50%, 
-      rgba(55, 48, 163, 0.02) 100%);
+    background: linear-gradient(135deg,
+        rgba(79, 70, 229, 0.02) 0%,
+        rgba(99, 102, 241, 0.03) 50%,
+        rgba(55, 48, 163, 0.02) 100%);
     overflow: hidden;
 
     .hero-content {
@@ -98,14 +104,19 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
   }
 
   .container {
-    max-width: 1200px;
+    width: calc(100% - 64px);
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
     position: relative;
     z-index: 1;
 
+    @media (max-width: 768px) {
+      width: calc(100% - 32px);
+    }
+
     &:not(.contact-hero .container) {
-      padding: 80px 20px;
+      padding: 60px 0 80px;
     }
 
     .section-header {
@@ -191,8 +202,8 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
             gap: 20px;
             padding: 24px;
             background: $white;
-            border-radius: 16px;
-            border: 1px solid $border;
+            border-radius: $border-radius;
+            border: 1px solid $border-color;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -383,11 +394,11 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
         }
 
         .contact-form {
-          background: $white;
-          padding: 48px;
-          border-radius: 20px;
-          border: 1px solid $border;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+          background: $card-bg;
+          padding: 40px;
+          border-radius: $border-radius;
+          border: 1px solid $border-color;
+          box-shadow: $card-shadow;
 
           .form-row {
             display: grid;
@@ -413,7 +424,8 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
               transition: color 0.3s ease;
             }
 
-            input, textarea {
+            input,
+            textarea {
               width: 100%;
               padding: 16px 20px;
               border: 2px solid $border;
@@ -638,7 +650,8 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
             .form-group {
               margin-bottom: 24px;
 
-              input, textarea {
+              input,
+              textarea {
                 padding: 14px 16px;
                 font-size: 15px;
               }
@@ -710,6 +723,188 @@ $gradient: linear-gradient(135deg, $accent 0%, $accent-dark 100%);
                 width: 100%;
                 justify-content: center;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// Comprehensive Dark Mode Styles for Contact
+// ==========================================
+[data-theme="dark"] .contact {
+  background: #0b0f19;
+
+  .contact-bg-pattern {
+    opacity: 0.3;
+  }
+
+  // Hero Section
+  .contact-hero {
+    background: linear-gradient(135deg,
+        rgba(79, 70, 229, 0.08) 0%,
+        rgba(99, 102, 241, 0.06) 50%,
+        rgba(11, 15, 25, 0.95) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    .hero-content {
+      .hero-badge {
+        background: rgba(99, 102, 241, 0.15);
+        color: #818cf8;
+        border-color: rgba(99, 102, 241, 0.3);
+      }
+
+      .hero-title {
+        color: #f8fafc;
+
+        .title-gradient {
+          background: linear-gradient(135deg, #818cf8 0%, #38bdf8 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+
+      .hero-subtitle {
+        color: #94a3b8;
+      }
+    }
+  }
+
+  // Section Header
+  .section-header {
+    .section-badge {
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+
+    .section-title {
+      color: #f8fafc;
+
+      .title-gradient {
+        background: linear-gradient(135deg, #818cf8 0%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .section-subtitle {
+      color: #94a3b8;
+    }
+  }
+
+  // Contact Info & Cards
+  .contact-content {
+    .contact-info {
+      .info-header {
+        h3 {
+          color: #f8fafc;
+        }
+        p {
+          color: #94a3b8;
+        }
+      }
+
+      .contact-methods {
+        .contact-method {
+          background: #131b2e;
+          border-color: rgba(255, 255, 255, 0.08);
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+
+          &:hover {
+            background: #18233a;
+            border-color: rgba(99, 102, 241, 0.4);
+          }
+
+          .method-icon {
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+          }
+
+          .method-content {
+            h4 {
+              color: #f8fafc;
+            }
+            p {
+              color: #cbd5e1;
+            }
+            .method-label {
+              color: #94a3b8;
+            }
+          }
+        }
+      }
+
+      .social-links {
+        h4 {
+          color: #f8fafc;
+        }
+
+        .social-link {
+          background: #131b2e;
+          border-color: rgba(255, 255, 255, 0.1);
+          color: #94a3b8;
+
+          &:hover {
+            background: #4f46e5;
+            color: #ffffff;
+            border-color: #4f46e5;
+          }
+        }
+      }
+    }
+
+    // Form Container
+    .contact-form-container {
+      .form-header {
+        h3 {
+          color: #f8fafc;
+        }
+        p {
+          color: #94a3b8;
+        }
+      }
+
+      .contact-form {
+        background: #131b2e;
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+
+        .form-group {
+          label {
+            color: #e2e8f0;
+          }
+
+          &.focused label {
+            color: #818cf8;
+          }
+
+          input,
+          textarea {
+            background-color: #0b0f19;
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #f8fafc;
+
+            &::placeholder {
+              color: #64748b;
+            }
+
+            &:focus {
+              background-color: #0f172a;
+              border-color: #818cf8;
+              box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+            }
+          }
+        }
+
+        .form-actions {
+          .form-note {
+            color: #94a3b8;
+
+            span {
+              color: #94a3b8;
             }
           }
         }
